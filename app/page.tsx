@@ -4,6 +4,8 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
 import Events from "@/components/home/Events";
+import About from "@/components/home/About";
+import Join from "@/components/home/Join";
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
       <Hero />
       <Impact />
       <Events />
+      <About />
+      <Join />
     </div>
   );
 }
