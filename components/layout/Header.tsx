@@ -11,11 +11,11 @@ const Header = ({ title }: HeaderProps) => {
                 <Logo />
                 <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
                     <a href="/events" className="hover:text-primary transition">Events</a>
-                    <a href="#impact" className="hover:text-primary transition">Impact</a>
-                    <a href="#about" className="hover:text-primary transition">About</a>
-                    <a href="#join" className="hover:text-primary transition">Volunteer</a>
+                    <a href="/#impact" className="hover:text-primary transition">Impact</a>
+                    <a href="/about" className="hover:text-primary transition">About</a>
+                    <a href="/#join" className="hover:text-primary transition">Volunteer</a>
                 </nav>
-                <a href="#donate" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary/90 transition shadow-elegant">
+                <a href="/donate" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary/90 transition shadow-elegant">
                     Donate
                 </a>
             </div>

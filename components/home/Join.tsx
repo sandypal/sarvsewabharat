@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Join = () => {
     return (
         <section id="join" className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
@@ -13,9 +15,9 @@ const Join = () => {
                         Volunteer at the next event, sponsor a sapling, or donate to keep our camps running. Every small act compounds.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                        <a href="#donate" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-semibold hover:bg-primary/90 transition shadow-elegant">
+                        <Link href="/donate" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-semibold hover:bg-primary/90 transition shadow-elegant">
                             Donate Now
-                        </a>
+                        </Link>
                         <a href="#" className="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:opacity-90 transition">
                             Volunteer With Us
                         </a>
