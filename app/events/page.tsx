@@ -5,10 +5,10 @@ import { eventsList } from "@/lib/events-data";
 import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Events — Sarv Sewa Sashaktikaran Sangathan",
+  title: "Events",
   description: "Discover upcoming events by Sarv Sewa Sashaktikaran Sangathan — marathons, cricket tournaments, blood donation camps, tree plantation drives and more.",
   openGraph: {
-    title: "Events — Sarv Sewa Sashaktikaran Sangathan",
+    title: "Events | Sarv Sewa Sashaktikaran Sangathan",
     description: "Run, play, donate, plant and celebrate with us. Explore our calendar of community events.",
   },
 };
@@ -102,7 +102,7 @@ export default function EventsPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center">
               <a
-                href="mailto:events@sangathan.org?subject=Host an event in my district"
+                href="mailto:info@sarvsewabharat.org?subject=Host an event in my district"
                 className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-semibold hover:bg-primary/90 transition shadow-elegant"
               >
                 Partner With Us

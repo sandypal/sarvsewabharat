@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -17,12 +18,11 @@ import { Heart, CheckCircle, IndianRupee, ShieldCheck } from "lucide-react";
 
 const presets = [500, 1000, 2500, 5000, 10000];
 const causes = [
-    { value: "general", label: "Wherever needed most" },
-    { value: "run-for-sindhu", label: "Run for Sindhu — Education & Sports" },
-    { value: "raktdaan", label: "Raktdaan Mahotsav — Blood Donation" },
-    { value: "vriksh", label: "Vriksh Bandhan — Tree Plantation" },
-    { value: "sports", label: "Sangathan Premier Cup — Rural Sports" },
-    { value: "relief", label: "Relief & Community Welfare" },
+    { value: "run-for-sindhu", label: "Run For Sindhu Marathon" },
+    { value: "operation-sindoor", label: "Operation Sindoor Cricket Cup" },
+    { value: "shiksha-sankalp", label: "Shiksha Sankalp (One Lac Students One Lac Smiles)" },
+    { value: "ssss-blood-donation", label: "SSSS Blood Donation Movement" },
+    { value: "shakti-sankalp", label: "Shakti Sankalp (Women Empowerment & Skill Develoment)" },
 ];
 
 export default function DonatePage() {
@@ -34,7 +34,7 @@ export default function DonatePage() {
         email: "",
         phone: "",
         pan: "",
-        cause: "general",
+        cause: "run-for-sindhu",
         message: "",
     });
 
@@ -99,7 +99,7 @@ export default function DonatePage() {
                                             <button
                                                 onClick={() => {
                                                     setSubmitted(false);
-                                                    setFormData({ name: "", email: "", phone: "", pan: "", cause: "general", message: "" });
+                                                    setFormData({ name: "", email: "", phone: "", pan: "", cause: "run-for-sindhu", message: "" });
                                                     setAmount(1000);
                                                     setCustomAmount("");
                                                 }}
@@ -228,7 +228,7 @@ export default function DonatePage() {
 
                                         <div className="space-y-2">
                                             <Label htmlFor="message">Message (optional)</Label>
-                                            <Input
+                                            <Textarea
                                                 id="message"
                                                 maxLength={500}
                                                 placeholder="Why are you donating? Any message for the team?"
@@ -298,8 +298,8 @@ export default function DonatePage() {
 
                         <div className="rounded-2xl bg-band p-6 text-primary-foreground text-center">
                             <div className="text-xs uppercase tracking-[0.18em] opacity-90">Prefer to talk?</div>
-                            <div className="mt-2 font-display text-2xl font-bold">+91 98XXX XXXXX</div>
-                            <p className="mt-2 text-sm opacity-90">donate@sarvsewa.org</p>
+                            <div className="mt-2 font-display text-2xl font-bold">+91-90563-33759</div>
+                            <p className="mt-2 text-sm opacity-90">info@sarvsewabharat.org</p>
                         </div>
                     </div>
                 </div>

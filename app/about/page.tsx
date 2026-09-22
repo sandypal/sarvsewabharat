@@ -4,10 +4,10 @@ import Image from "next/image";
 import community from "@/public/community.jpg";
 
 export const metadata: Metadata = {
-  title: "About Us — Sarv Sewa Sashaktikaran Sangathan",
+  title: "About Us",
   description: "Learn about Sarv Sewa Sashaktikaran Sangathan — our story, mission, values and the volunteers powering a decade of community service across India.",
   openGraph: {
-    title: "About Us — Sarv Sewa Sashaktikaran Sangathan",
+    title: "About Us | Sarv Sewa Sashaktikaran Sangathan",
     description: "A decade of service. 3,000+ volunteers. One mission — a stronger, kinder, greener Bharat.",
   },
 };

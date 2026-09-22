@@ -18,20 +18,28 @@ export async function generateMetadata({
   const event = eventsData[slug];
   if (!event) {
     return {
-      title: "Event Not Found — Sarv Sewa Sashaktikaran Sangathan",
+      title: "Event Not Found",
     };
   }
+  const description = `${event.tagline}. ${event.description[0].slice(0, 140)}…`;
   return {
-    title: `${event.title} — Sarv Sewa Sashaktikaran Sangathan`,
-    description: event.tagline,
+    title: event.title,
+    description,
     openGraph: {
-      title: event.title,
-      description: event.tagline,
+      title: `${event.title} | Sarv Sewa Sashaktikaran Sangathan`,
+      description,
       images: [
         {
           url: event.img.src,
+          alt: event.title,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${event.title} | Sarv Sewa Sashaktikaran Sangathan`,
+      description,
+      images: [event.img.src],
     },
   };
 }

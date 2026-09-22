@@ -2,6 +2,8 @@ import marathon from "@/public/marathon.jpg";
 import cricket from "@/public/cricket.jpg";
 import blood from "@/public/blood.jpg";
 import trees from "@/public/trees.jpg";
+import shiksha from "@/public/shiksha.png";
+import shakti from "@/public/shakti.png";
 import { StaticImageData } from "next/image";
 
 export type EventDetails = {
@@ -21,10 +23,10 @@ export type EventDetails = {
 export const eventsData: Record<string, EventDetails> = {
   "run-for-sindhu": {
     slug: "run-for-sindhu",
-    title: "Run for Sindhu",
+    title: "Run For Sindhu Marathon",
     tag: "Marathon",
     tagline: "10K & Half Marathon for Education",
-    date: "Sunday, 19 October 2026 · 5:30 AM",
+    date: "Coming Soon",
     location: "Riverside Promenade, Sector 12, New Delhi",
     img: marathon,
     description: [
@@ -37,41 +39,62 @@ export const eventsData: Record<string, EventDetails> = {
       "Hydration stations every 2.5 km, medical support on course",
       "Pre-race carb-loading dinner the night before",
     ],
-    contactEmail: "runforsindhu@sangathan.org",
-    contactPhone: "+91 98100 11122",
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
   },
-  "sangathan-premier-cup": {
-    slug: "sangathan-premier-cup",
-    title: "Sangathan Premier Cup",
+  "operation-sindoor": {
+    slug: "operation-sindoor",
+    title: "Operation Sindoor Cricket Cup",
     tag: "Cricket",
-    tagline: "Inter-District Tape-Ball Tournament",
-    date: "1 December 2026 — 18 January 2027",
+    tagline: "Community Cricket Tournament",
+    date: "Coming Soon",
     location: "District Sports Grounds across 12 districts",
     img: cricket,
     description: [
-      "Sixty-four teams. Six weeks. One trophy. The Sangathan Premier Cup is a community-built tape-ball tournament that turns local maidans into festivals of sport, sportsmanship and neighbourhood pride.",
+      "Operation Sindoor Cricket Cup is a community-built tape-ball tournament that turns local maidans into festivals of sport, sportsmanship and neighbourhood pride.",
       "Registration includes team kits, umpiring fees and ground charges. Knockouts and finals are streamed live to give every player their moment.",
     ],
     highlights: [
-      "16 players per squad, ₹2,400 team registration",
+      "16 players per squad, team registration",
       "League + knockout format with district playoffs",
-      "Winner's purse of ₹1,00,000 + scholarships for MVPs",
+      "Winner's purse + scholarships for MVPs",
       "Free coaching clinic for the youngest 4 teams",
     ],
-    contactEmail: "cricket@sangathan.org",
-    contactPhone: "+91 98100 33344",
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
   },
-  "raktdaan-mahotsav": {
-    slug: "raktdaan-mahotsav",
-    title: "Raktdaan Mahotsav",
+  "shiksha-sankalp": {
+    slug: "shiksha-sankalp",
+    title: "Shiksha Sankalp (One Lac Students One Lac Smiles)",
+    tag: "Education",
+    tagline: "Empowering 1,00,000 Students",
+    date: "Coming Soon",
+    location: "Various Schools and Educational Centers",
+    img: shiksha,
+    description: [
+      "Shiksha Sankalp is an ambitious project aiming to bring smiles to one lakh students by providing them with necessary educational resources and support.",
+      "We believe that education is the most powerful weapon to change the world. This initiative ensures no child is left behind due to lack of resources.",
+    ],
+    highlights: [
+      "Distribution of school bags, books, and stationery",
+      "Scholarships for meritorious and needy students",
+      "Setting up of digital classrooms in rural areas",
+      "Mentorship programs linking students with professionals",
+    ],
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
+  },
+  "ssss-blood-donation": {
+    slug: "ssss-blood-donation",
+    title: "SSSS Blood Donation Movement",
     tag: "Blood Camp",
     tagline: "Voluntary Blood Donation Drive",
-    date: "Every quarter · Next camp: 14 July 2026, 9 AM – 4 PM",
+    date: "Coming Soon",
     location: "Sangathan Community Hall, Lajpat Nagar",
     img: blood,
     description: [
-      "Raktdaan Mahotsav is our quarterly voluntary blood donation drive run in partnership with regional hospitals and accredited blood banks. Donors are screened by licensed medical staff and receive light refreshments, a certificate and a donor card.",
-      "Over 12,000 units have been collected since 2017 — used in trauma care, thalassemia treatment and emergency surgeries.",
+      "Our Blood Donation Movement is a voluntary drive run in partnership with regional hospitals and accredited blood banks. Donors are screened by licensed medical staff.",
+      "Collected units are used in trauma care, thalassemia treatment and emergency surgeries to save lives when it matters most.",
     ],
     highlights: [
       "Donors must be 18–65 years, weigh 50+ kg",
@@ -79,30 +102,30 @@ export const eventsData: Record<string, EventDetails> = {
       "Donor card valid for priority blood access for a year",
       "Refreshments and post-donation rest area provided",
     ],
-    contactEmail: "raktdaan@sangathan.org",
-    contactPhone: "+91 98100 55566",
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
   },
-  "vriksh-bandhan": {
-    slug: "vriksh-bandhan",
-    title: "Vriksh Bandhan",
-    tag: "Plantation",
-    tagline: "Tree Plantation Drive",
-    date: "Every Saturday through monsoon · July – September 2026",
-    location: "Schools, panchayats & roadside greenbelts (12 districts)",
-    img: trees,
+  "shakti-sankalp": {
+    slug: "shakti-sankalp",
+    title: "Shakti Sankalp (Women Empowerment & Skill Develoment)",
+    tag: "Empowerment",
+    tagline: "Fostering Independence and Skill",
+    date: "Coming Soon",
+    location: "Community Centers across 5 districts",
+    img: shakti,
     description: [
-      "Vriksh Bandhan literally translates to ‘bond with a tree’. Volunteers plant native saplings — neem, peepal, jamun, gulmohar — and adopt them for the first year, watering and protecting each one until it can stand on its own.",
-      "We have crossed 1 lakh saplings planted across schools, panchayats and roadside greenbelts, with a 78% survival rate after twelve months.",
+      "Shakti Sankalp focuses on women empowerment and skill development, providing vocational training, financial literacy, and entrepreneurial support.",
+      "Our goal is to create a supportive ecosystem where women can learn, grow, and achieve financial independence.",
     ],
     highlights: [
-      "Saplings, tools and gloves provided on-site",
-      "Each volunteer gets a geo-tagged tree to track growth",
-      "Family-friendly — kids 8+ welcome with a guardian",
-      "Tea, snacks and a sapling to take home",
+      "Vocational courses in tailoring, crafts, and IT",
+      "Financial literacy and micro-finance guidance",
+      "Self-defense and confidence-building workshops",
+      "Networking events with successful women entrepreneurs",
     ],
-    contactEmail: "vriksh@sangathan.org",
-    contactPhone: "+91 98100 77788",
-  },
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
+  }
 };
 
 export const eventsList = Object.values(eventsData);

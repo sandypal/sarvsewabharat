@@ -24,7 +24,7 @@ const Events = () => {
                     </h2>
                 </div>
                 <p className="max-w-md text-muted-foreground">
-                    From the starting line of <em>Run for Sindhu</em> to the sapling beds of <em>Vriksh Bandhan</em>, every event is an invitation to serve.
+                    From the starting line of <em>Run for Sindhu</em> to the community classrooms of <em>Shiksha Sankalp</em>, every event is an invitation to serve.
                 </p>
             </div>
 
