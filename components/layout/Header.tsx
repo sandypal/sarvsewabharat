@@ -8,7 +8,7 @@ const Header = ({ title }: HeaderProps) => {
     return (
         <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border/60">
             <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-                <Logo /> //its logo in the top left corner
+                <Logo />
                 <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
                     <a href="/events" className="hover:text-primary transition">Events</a>
                     <a href="/#impact" className="hover:text-primary transition">Impact</a>

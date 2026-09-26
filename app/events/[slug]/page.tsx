@@ -125,18 +125,18 @@ export default async function EventPage({
                 <InfoRow label="Phone" value={event.contactPhone} />
               </div>
 
-              <a
-                href={`mailto:${event.contactEmail}?subject=Registration: ${encodeURIComponent(event.title)}`}
+              <Link
+                href="/contact"
                 className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary text-primary-foreground px-6 py-3.5 font-semibold hover:bg-primary/90 transition shadow-elegant"
               >
                 Register Now
-              </a>
-              <a
-                href={`tel:${event.contactPhone.replace(/\s/g, "")}`}
+              </Link>
+              <Link
+                href="/contact"
                 className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-secondary text-secondary-foreground px-6 py-3.5 font-semibold hover:opacity-90 transition"
               >
                 Contact Coordinator
-              </a>
+              </Link>
             </div>
           </aside>
         </div>

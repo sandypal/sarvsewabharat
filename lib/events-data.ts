@@ -1,5 +1,6 @@
-import marathon from "@/public/marathon.jpg";
-import cricket from "@/public/cricket.jpg";
+import marathon from "@/public/sindhu.jpg";
+import cricket from "@/public/sindoor.jpg";
+import sansad from "@/public/sansad.jpg";
 import blood from "@/public/blood.jpg";
 import trees from "@/public/trees.jpg";
 import shiksha from "@/public/shiksha.png";
@@ -21,34 +22,13 @@ export type EventDetails = {
 };
 
 export const eventsData: Record<string, EventDetails> = {
-  "run-for-sindhu": {
-    slug: "run-for-sindhu",
-    title: "Run For Sindhu Marathon",
-    tag: "Marathon",
-    tagline: "10K & Half Marathon for Education",
-    date: "Coming Soon",
-    location: "Riverside Promenade, Sector 12, New Delhi",
-    img: marathon,
-    description: [
-      "Run for Sindhu is our flagship annual marathon — a sunrise run through city streets in tribute to the resilience and spirit of Sindhu, a young girl whose story inspired our education fund.",
-      "Every registration directly sponsors school supplies, uniforms and exam fees for underprivileged children in the Sangathan's adopted schools.",
-    ],
-    highlights: [
-      "10K, Half Marathon (21.1K) and a 3K Family Fun Run",
-      "Chip-timed race with finisher medal & dri-fit t-shirt",
-      "Hydration stations every 2.5 km, medical support on course",
-      "Pre-race carb-loading dinner the night before",
-    ],
-    contactEmail: "info@sarvsewabharat.org",
-    contactPhone: "+91-90563-33759",
-  },
   "operation-sindoor": {
     slug: "operation-sindoor",
     title: "Operation Sindoor Cricket Cup",
     tag: "Cricket",
     tagline: "Community Cricket Tournament",
     date: "Coming Soon",
-    location: "District Sports Grounds across 12 districts",
+    location: "Coming Soon",
     img: cricket,
     description: [
       "Operation Sindoor Cricket Cup is a community-built tape-ball tournament that turns local maidans into festivals of sport, sportsmanship and neighbourhood pride.",
@@ -63,13 +43,55 @@ export const eventsData: Record<string, EventDetails> = {
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
   },
+  "run-for-sindhu": {
+    slug: "run-for-sindhu",
+    title: "Run For Sindhu Marathon",
+    tag: "Marathon",
+    tagline: "10K Marathon for Education",
+    date: "Coming Soon",
+    location: "Coming Soon",
+    img: marathon,
+    description: [
+      "Run for Sindhu is our flagship annual marathon — a sunrise run through city streets in tribute to the resilience and spirit of Sindhu, a young girl whose story inspired our education fund.",
+      "Every registration directly sponsors school supplies, uniforms and exam fees for underprivileged children in the Sangathan's adopted schools.",
+    ],
+    highlights: [
+      "10K and a 3K Family Fun Run",
+      "Chip-timed race with finisher medal & dri-fit t-shirt",
+      "Hydration stations every 2.5 km, medical support on course",
+      "Pre-race carb-loading dinner the night before",
+    ],
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
+  },
+  "sansad-darshan-yatra": {
+    slug: "sansad-darshan-yatra",
+    title: "Sansad Darshan Yatra",
+    tag: "Excursion",
+    tagline: "A Journey to the Heart of Democracy",
+    date: "Coming Soon",
+    location: "Coming Soon",
+    img: sansad,
+    description: [
+      "Sansad Darshan Yatra is an educational excursion taking youth and community members to witness the vibrant democratic process at the Parliament of India.",
+      "This initiative aims to inspire the next generation of leaders by giving them firsthand exposure to the nation's legislative heart."
+    ],
+    highlights: [
+      "Guided tour of the Parliament building",
+      "Interactive sessions with policymakers and leaders",
+      "Educational workshops on the Indian Constitution",
+      "Travel and accommodation provided for rural youth"
+    ],
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
+  },
   "shiksha-sankalp": {
     slug: "shiksha-sankalp",
     title: "Shiksha Sankalp (One Lac Students One Lac Smiles)",
     tag: "Education",
     tagline: "Empowering 1,00,000 Students",
     date: "Coming Soon",
-    location: "Various Schools and Educational Centers",
+    location: "Coming Soon",
     img: shiksha,
     description: [
       "Shiksha Sankalp is an ambitious project aiming to bring smiles to one lakh students by providing them with necessary educational resources and support.",
@@ -90,7 +112,7 @@ export const eventsData: Record<string, EventDetails> = {
     tag: "Blood Camp",
     tagline: "Voluntary Blood Donation Drive",
     date: "Coming Soon",
-    location: "Sangathan Community Hall, Lajpat Nagar",
+    location: "Coming Soon",
     img: blood,
     description: [
       "Our Blood Donation Movement is a voluntary drive run in partnership with regional hospitals and accredited blood banks. Donors are screened by licensed medical staff.",
@@ -111,7 +133,7 @@ export const eventsData: Record<string, EventDetails> = {
     tag: "Empowerment",
     tagline: "Fostering Independence and Skill",
     date: "Coming Soon",
-    location: "Community Centers across 5 districts",
+    location: "Coming Soon",
     img: shakti,
     description: [
       "Shakti Sankalp focuses on women empowerment and skill development, providing vocational training, financial literacy, and entrepreneurial support.",

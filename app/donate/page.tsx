@@ -23,12 +23,14 @@ const causes = [
     { value: "shiksha-sankalp", label: "Shiksha Sankalp (One Lac Students One Lac Smiles)" },
     { value: "ssss-blood-donation", label: "SSSS Blood Donation Movement" },
     { value: "shakti-sankalp", label: "Shakti Sankalp (Women Empowerment & Skill Develoment)" },
+    { value: "sansad-darshan-yatra", label: "Sansad Darshan Yatra" },
 ];
 
 export default function DonatePage() {
     const [amount, setAmount] = useState<number | "custom">(1000);
     const [customAmount, setCustomAmount] = useState<string>("");
     const [submitted, setSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -40,11 +42,47 @@ export default function DonatePage() {
 
     const finalAmount = amount === "custom" ? Number(customAmount) || 0 : amount;
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Wire to payment gateway or server function when ready.
-        setSubmitted(true);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        setIsLoading(true);
+
+        try {
+            // Send request to our Laravel backend
+            // Now pointing to the live Hostinger deployment
+            const apiUrl = "https://sarvsewabharat.org/api/api/payment/initiate";
+            
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    pan: formData.pan,
+                    cause: formData.cause,
+                    message: formData.message,
+                    amount: finalAmount
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.status === "success" && data.payment_url) {
+                // Redirect user directly to the Easebuzz checkout URL
+                window.location.href = data.payment_url;
+            } else {
+                console.error("Initiation Failed", data);
+                alert("Payment initiation failed. Please try again. " + (data.message || ""));
+                setIsLoading(false);
+            }
+        } catch (error) {
+            console.error("Payment Error:", error);
+            alert("Unable to connect to the payment server. Is MAMP running?");
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -240,12 +278,13 @@ export default function DonatePage() {
                                         <div className="pt-2">
                                             <Button
                                                 type="submit"
+                                                disabled={isLoading}
                                                 className="w-full h-12 rounded-full text-base font-semibold shadow-elegant"
                                             >
-                                                Pledge ₹{finalAmount > 0 ? finalAmount.toLocaleString("en-IN") : "—"}
+                                                {isLoading ? "Initiating Secure Payment..." : `Pledge ₹${finalAmount > 0 ? finalAmount.toLocaleString("en-IN") : "—"}`}
                                             </Button>
                                             <p className="mt-3 text-xs text-muted-foreground text-center">
-                                                You will receive UPI / bank transfer details and an 80G receipt via email.
+                                                You will be securely redirected to Easebuzz to complete your donation.
                                             </p>
                                         </div>
                                     </form>
@@ -281,16 +320,15 @@ export default function DonatePage() {
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 {[
-                                    { amount: "₹500", impact: "Plants 5 native saplings through Vriksh Bandhan" },
-                                    { amount: "₹1,000", impact: "Sponsors a child’s sports kit for Run for Sindhu" },
-                                    { amount: "₹5,000", impact: "Funds a mini blood donation camp in one village" },
-                                    { amount: "₹10,000", impact: "Supports a rural cricket tournament for 200+ youth" },
-                                ].map((item) => (
-                                    <div key={item.amount} className="flex gap-4 items-start">
-                                        <div className="shrink-0 rounded-lg bg-primary/10 px-3 py-1.5 text-sm font-bold text-primary">
-                                            {item.amount}
-                                        </div>
-                                        <p className="text-sm text-foreground/80 leading-snug">{item.impact}</p>
+                                    <span key="1">Sponsors educational resources and scholarships for underprivileged students. <Link href="/events/shiksha-sankalp" className="font-semibold text-primary hover:underline">Learn about Shiksha Sankalp →</Link></span>,
+                                    <span key="2">Supports grassroots sports and community engagement through local tournaments. <Link href="/events/run-for-sindhu" className="font-semibold text-primary hover:underline">Learn about Run for Sindhu →</Link></span>,
+                                    <span key="3">Facilitates life-saving blood donation camps and critical trauma care support. <Link href="/events/ssss-blood-donation" className="font-semibold text-primary hover:underline">Learn about Blood Donation →</Link></span>,
+                                    <span key="4">Funds women's empowerment initiatives and vital skill development programs. <Link href="/events/shakti-sankalp" className="font-semibold text-primary hover:underline">Learn about Shakti Sankalp →</Link></span>,
+                                    <span key="5">Enables educational youth excursions to experience our democratic institutions. <Link href="/events/sansad-darshan-yatra" className="font-semibold text-primary hover:underline">Learn about Sansad Yatra →</Link></span>,
+                                ].map((impact, idx) => (
+                                    <div key={idx} className="flex gap-4 items-start">
+                                        <div className="shrink-0 mt-1 h-2 w-2 rounded-full bg-primary" />
+                                        <p className="text-sm text-foreground/80 leading-snug">{impact}</p>
                                     </div>
                                 ))}
                             </CardContent>

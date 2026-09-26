@@ -14,8 +14,12 @@ const Footer = () => {
                                 <div className="text-sm text-white/70">एक कदम मानवता की ओर</div>
                             </div>
                         </div>
-                        <p className="text-white/80 max-w-sm mb-6">
+                        <p className="text-white/80 max-w-sm mb-4">
                             Dedicated to empowering communities through education, sports, health, and environmental initiatives across India.
+                        </p>
+                        <p className="text-white/60 text-sm leading-relaxed">
+                            AT- 708, Street No 18, Ambedkar Nagar,<br />
+                            Giaspura, Ludhiana - 141016, Punjab, India
                         </p>
                     </div>
 

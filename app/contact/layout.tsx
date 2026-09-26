@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Sarv Sewa Sashaktikaran Sangathan. Call us at +91-90563-33759 or email info@sarvsewabharat.org. We are based in New Delhi, India.",
+    "Get in touch with Sarv Sewa Sashaktikaran Sangathan. Call us at +91-90563-33759 or email info@sarvsewabharat.org. Located at AT- 708, Street No 18, Ambedkar Nagar, Giaspura, Ludhiana - 141016, Punjab, India.",
   keywords: [
     "Contact SSSS",
     "NGO India Contact",
     "Sarv Sewa Sashaktikaran Sangathan Contact",
-    "NGO New Delhi",
+    "NGO Ludhiana",
+    "NGO Punjab",
   ],
   openGraph: {
     title: "Contact Us | Sarv Sewa Sashaktikaran Sangathan",

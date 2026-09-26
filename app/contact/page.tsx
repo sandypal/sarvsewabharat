@@ -77,7 +77,9 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-lg">Visit Us</h3>
                     <p className="text-muted-foreground mt-1">
                       Sarv Sewa Sashaktikaran Sangathan<br />
-                      New Delhi, India
+                      AT- 708, Street No 18, Ambedkar Nagar,<br />
+                      Giaspura, Ludhiana - 141016,<br />
+                      Punjab, India
                     </p>
                   </div>
                 </div>
