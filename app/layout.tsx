@@ -15,8 +15,56 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sarv Sewa Sashaktikaran Sangathan",
-  description: "एक कदम मानवता की ओर",
+  metadataBase: new URL("https://sarvsewabharat.org"),
+  title: {
+    default: "Sarv Sewa Sashaktikaran Sangathan | NGO in India",
+    template: "%s | Sarv Sewa Sashaktikaran Sangathan",
+  },
+  description: "Sarv Sewa Sashaktikaran Sangathan is a leading NGO in India dedicated to education, sports, health, and environmental initiatives. Join us in making a difference.",
+  keywords: [
+    "NGO India",
+    "Education NGO",
+    "Blood Donation India",
+    "Tree Plantation NGO",
+    "Women Empowerment",
+    "Sarv Sewa Sashaktikaran Sangathan",
+    "SSSS NGO"
+  ],
+  authors: [{ name: "Sarv Sewa Sashaktikaran Sangathan" }],
+  creator: "Sarv Sewa Sashaktikaran Sangathan",
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://sarvsewabharat.org",
+    siteName: "Sarv Sewa Sashaktikaran Sangathan",
+    title: "Sarv Sewa Sashaktikaran Sangathan | NGO in India",
+    description: "Dedicated to empowering communities through education, sports, health, and environmental initiatives across India.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 600,
+        alt: "Sarv Sewa Sashaktikaran Sangathan Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sarv Sewa Sashaktikaran Sangathan | NGO in India",
+    description: "Dedicated to empowering communities through education, sports, health, and environmental initiatives across India.",
+    images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
