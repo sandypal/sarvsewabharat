@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -26,7 +27,10 @@ const causes = [
     { value: "sansad-darshan-yatra", label: "Sansad Darshan Yatra" },
 ];
 
-export default function DonatePage() {
+function DonateFormContent() {
+    const searchParams = useSearchParams();
+    const causeParam = searchParams.get("cause");
+
     const [amount, setAmount] = useState<number | "custom">(1000);
     const [customAmount, setCustomAmount] = useState<string>("");
     const [submitted, setSubmitted] = useState(false);
@@ -36,9 +40,15 @@ export default function DonatePage() {
         email: "",
         phone: "",
         pan: "",
-        cause: "run-for-sindhu",
+        cause: causeParam || "run-for-sindhu",
         message: "",
     });
+
+    useEffect(() => {
+        if (causeParam) {
+            setFormData(prev => ({ ...prev, cause: causeParam }));
+        }
+    }, [causeParam]);
 
     const finalAmount = amount === "custom" ? Number(customAmount) || 0 : amount;
 
@@ -343,5 +353,13 @@ export default function DonatePage() {
                 </div>
             </section>
         </div>
+    );
+}
+
+export default function DonatePage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-background text-foreground font-semibold">Loading...</div>}>
+            <DonateFormContent />
+        </Suspense>
     );
 }

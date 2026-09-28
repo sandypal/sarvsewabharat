@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
 import Events from "@/components/home/Events";
+import Initiatives from "@/components/home/Initiatives";
 import About from "@/components/home/About";
 import Join from "@/components/home/Join";
 import type { Metadata } from "next";
@@ -45,6 +46,7 @@ export default function Home() {
       <Hero />
       <Impact />
       <Events />
+      <Initiatives />
       <About />
       <Join />
     </div>

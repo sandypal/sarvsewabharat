@@ -85,27 +85,6 @@ export const eventsData: Record<string, EventDetails> = {
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
   },
-  "shiksha-sankalp": {
-    slug: "shiksha-sankalp",
-    title: "Shiksha Sankalp (One Lac Students One Lac Smiles)",
-    tag: "Education",
-    tagline: "Empowering 1,00,000 Students",
-    date: "Coming Soon",
-    location: "Coming Soon",
-    img: shiksha,
-    description: [
-      "Shiksha Sankalp is an ambitious project aiming to bring smiles to one lakh students by providing them with necessary educational resources and support.",
-      "We believe that education is the most powerful weapon to change the world. This initiative ensures no child is left behind due to lack of resources.",
-    ],
-    highlights: [
-      "Distribution of school bags, books, and stationery",
-      "Scholarships for meritorious and needy students",
-      "Setting up of digital classrooms in rural areas",
-      "Mentorship programs linking students with professionals",
-    ],
-    contactEmail: "info@sarvsewabharat.org",
-    contactPhone: "+91-90563-33759",
-  },
   "ssss-blood-donation": {
     slug: "ssss-blood-donation",
     title: "SSSS Blood Donation Movement",
@@ -126,14 +105,38 @@ export const eventsData: Record<string, EventDetails> = {
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
+  }
+};
+
+export const initiativesData: Record<string, EventDetails> = {
+  "shiksha-sankalp": {
+    slug: "shiksha-sankalp",
+    title: "Shiksha Sankalp (One Lac Students One Lac Smiles)",
+    tag: "Education",
+    tagline: "Empowering 1,00,000 Students",
+    date: "Ongoing",
+    location: "Various Locations",
+    img: shiksha,
+    description: [
+      "Shiksha Sankalp is an ambitious project aiming to bring smiles to one lakh students by providing them with necessary educational resources and support.",
+      "We believe that education is the most powerful weapon to change the world. This initiative ensures no child is left behind due to lack of resources.",
+    ],
+    highlights: [
+      "Distribution of school bags, books, and stationery",
+      "Scholarships for meritorious and needy students",
+      "Setting up of digital classrooms in rural areas",
+      "Mentorship programs linking students with professionals",
+    ],
+    contactEmail: "info@sarvsewabharat.org",
+    contactPhone: "+91-90563-33759",
   },
   "shakti-sankalp": {
     slug: "shakti-sankalp",
     title: "Shakti Sankalp (Women Empowerment & Skill Develoment)",
     tag: "Empowerment",
     tagline: "Fostering Independence and Skill",
-    date: "Coming Soon",
-    location: "Coming Soon",
+    date: "Ongoing",
+    location: "Various Locations",
     img: shakti,
     description: [
       "Shakti Sankalp focuses on women empowerment and skill development, providing vocational training, financial literacy, and entrepreneurial support.",
@@ -151,3 +154,4 @@ export const eventsData: Record<string, EventDetails> = {
 };
 
 export const eventsList = Object.values(eventsData);
+export const initiativesList = Object.values(initiativesData);
