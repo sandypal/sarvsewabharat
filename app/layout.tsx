@@ -18,40 +18,40 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sarvsewabharat.org"),
   title: {
-    default: "Sarv Sewa Sashaktikaran Sangathan | NGO in India",
-    template: "%s | Sarv Sewa Sashaktikaran Sangathan",
+    default: "Sarv Sewa Sashktikarn Sangthan | NGO in India",
+    template: "%s | Sarv Sewa Sashktikarn Sangthan",
   },
-  description: "Sarv Sewa Sashaktikaran Sangathan is a leading NGO in India dedicated to education, sports, health, and environmental initiatives. Join us in making a difference.",
+  description: "Sarv Sewa Sashktikarn Sangthan is a leading NGO in India dedicated to education, sports, health, and environmental initiatives. Join us in making a difference.",
   keywords: [
     "NGO India",
     "Education NGO",
     "Blood Donation India",
     "Tree Plantation NGO",
     "Women Empowerment",
-    "Sarv Sewa Sashaktikaran Sangathan",
+    "Sarv Sewa Sashktikarn Sangthan",
     "SSSS NGO"
   ],
-  authors: [{ name: "Sarv Sewa Sashaktikaran Sangathan" }],
-  creator: "Sarv Sewa Sashaktikaran Sangathan",
+  authors: [{ name: "Sarv Sewa Sashktikarn Sangthan" }],
+  creator: "Sarv Sewa Sashktikarn Sangthan",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://sarvsewabharat.org",
-    siteName: "Sarv Sewa Sashaktikaran Sangathan",
-    title: "Sarv Sewa Sashaktikaran Sangathan | NGO in India",
+    siteName: "Sarv Sewa Sashktikarn Sangthan",
+    title: "Sarv Sewa Sashktikarn Sangthan | NGO in India",
     description: "Dedicated to empowering communities through education, sports, health, and environmental initiatives across India.",
     images: [
       {
         url: "/logo.png",
         width: 800,
         height: 600,
-        alt: "Sarv Sewa Sashaktikaran Sangathan Logo",
+        alt: "Sarv Sewa Sashktikarn Sangthan Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sarv Sewa Sashaktikaran Sangathan | NGO in India",
+    title: "Sarv Sewa Sashktikarn Sangthan | NGO in India",
     description: "Dedicated to empowering communities through education, sports, health, and environmental initiatives across India.",
     images: ["/logo.png"],
   },
@@ -79,7 +79,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header title="Sarv Sewa Sashaktikaran Sangathan" />
+        <Header title="Sarv Sewa Sashktikarn Sangthan" />
         {children}
         <Footer />
         <Script

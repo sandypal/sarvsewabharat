@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description:
-    "Terms and conditions for using the Sarv Sewa Sashaktikaran Sangathan website and making donations.",
+    "Terms and conditions for using the Sarv Sewa Sashktikarn Sangthan website and making donations.",
   robots: { index: false, follow: true },
 };
 
@@ -15,12 +15,12 @@ export default function TermsPage() {
         
         <div className="prose prose-slate dark:prose-invert max-w-none text-foreground/80 space-y-6">
           <p>
-            Welcome to the Sarv Sewa Sashaktikaran Sangathan website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Sarv Sewa Sashaktikaran Sangathan's relationship with you in relation to this website.
+            Welcome to the Sarv Sewa Sashktikarn Sangthan website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Sarv Sewa Sashktikarn Sangthan's relationship with you in relation to this website.
           </p>
 
           <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">1. Acceptance of Terms</h2>
           <p>
-            The term 'Sarv Sewa Sashaktikaran Sangathan' or 'us' or 'we' refers to the owner of the website. The term 'you' refers to the user or viewer of our website. By accessing or using this website in any manner, you agree to be bound by these Terms.
+            The term 'Sarv Sewa Sashktikarn Sangthan' or 'us' or 'we' refers to the owner of the website. The term 'you' refers to the user or viewer of our website. By accessing or using this website in any manner, you agree to be bound by these Terms.
           </p>
 
           <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">2. Use of Content</h2>

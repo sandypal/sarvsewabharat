@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
     Select,
     SelectContent,
@@ -15,7 +14,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Heart, CheckCircle, IndianRupee, ShieldCheck } from "lucide-react";
+import { Heart, CheckCircle, IndianRupee, ShieldCheck, ArrowRight, Building2, MapPin, Mail, Phone } from "lucide-react";
 
 const presets = [500, 1000, 2500, 5000, 10000];
 const causes = [
@@ -25,6 +24,16 @@ const causes = [
     { value: "ssss-blood-donation", label: "SSSS Blood Donation Movement" },
     { value: "shakti-sankalp", label: "Shakti Sankalp (Women Empowerment & Skill Develoment)" },
     { value: "sansad-darshan-yatra", label: "Sansad Darshan Yatra" },
+];
+
+const indianStates = [
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", 
+    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", 
+    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", 
+    "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", 
+    "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
+    "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", 
+    "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
 ];
 
 function DonateFormContent() {
@@ -40,6 +49,8 @@ function DonateFormContent() {
         email: "",
         phone: "",
         pan: "",
+        city: "",
+        state: "",
         cause: causeParam || "run-for-sindhu",
         message: "",
     });
@@ -57,10 +68,7 @@ function DonateFormContent() {
         setIsLoading(true);
 
         try {
-            // Send request to our Laravel backend
-            // Now pointing to the live Hostinger deployment
             const apiUrl = "https://sarvsewabharat.org/api/api/payment/initiate";
-            
             const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
@@ -72,6 +80,8 @@ function DonateFormContent() {
                     email: formData.email,
                     phone: formData.phone,
                     pan: formData.pan,
+                    city: formData.city,
+                    state: formData.state,
                     cause: formData.cause,
                     message: formData.message,
                     amount: finalAmount
@@ -81,7 +91,6 @@ function DonateFormContent() {
             const data = await response.json();
 
             if (data.status === "success" && data.payment_url) {
-                // Redirect user directly to the Easebuzz checkout URL
                 window.location.href = data.payment_url;
             } else {
                 console.error("Initiation Failed", data);
@@ -96,258 +105,330 @@ function DonateFormContent() {
     };
 
     return (
-        <div className="min-h-screen bg-background text-foreground">
+        <div className="min-h-screen bg-background text-foreground pb-24">
             {/* HERO */}
-            <section className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-hero opacity-[0.97]" />
-                <div className="absolute inset-0 [background:radial-gradient(circle_at_20%_30%,oklch(0.82_0.16_95/0.35),transparent_55%),radial-gradient(circle_at_80%_70%,oklch(0.7_0.18_50/0.3),transparent_50%)]" />
-                <div className="relative mx-auto max-w-7xl px-6 py-20 lg:py-28 text-primary-foreground">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] ring-1 ring-white/25">
-                        <Heart className="h-3.5 w-3.5 text-secondary" /> Give Today
+            <section className="relative overflow-hidden bg-primary pt-24 pb-48 lg:pt-32 lg:pb-56">
+                <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]" />
+                <div className="relative mx-auto max-w-6xl px-6 text-center z-10 text-primary-foreground">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] shadow-sm mb-6">
+                        <Heart className="h-3.5 w-3.5" /> Support Our Mission
                     </span>
-                    <h1 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] max-w-3xl">
+                    <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] max-w-4xl mx-auto">
                         Your generosity is the root of every good thing we do.
                     </h1>
-                    <p className="mt-5 max-w-2xl text-lg text-white/85 leading-relaxed">
-                        Every rupee you donate becomes a sapling, a blood unit, a scholarship, or a meal for someone in need. Fill in the form below and we will share the payment details with you right away.
+                    <p className="mt-6 max-w-2xl mx-auto text-lg text-primary-foreground/85 leading-relaxed font-medium">
+                        Every rupee you donate becomes a sapling, a blood unit, a scholarship, or a meal for someone in need.
                     </p>
                 </div>
-                <div className="relative h-16 bg-gradient-to-b from-transparent to-background" />
             </section>
 
-            {/* FORM SECTION */}
-            <section className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-                <div className="grid lg:grid-cols-5 gap-12 items-start">
-                    {/* MAIN FORM */}
-                    <div className="lg:col-span-3">
-                        <Card className="shadow-elegant border-border">
-                            <CardHeader>
-                                <CardTitle className="font-display text-2xl">Make a Donation</CardTitle>
-                                <CardDescription>
-                                    Choose an amount and tell us a little about yourself. We will reach out with secure payment options.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                {submitted ? (
-                                    <div className="text-center py-12">
-                                        <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                                            <CheckCircle className="h-8 w-8 text-primary" />
+            {/* FORM CONTAINER - Floating up into Hero */}
+            <section className="mx-auto max-w-6xl px-6 relative z-20 -mt-32 lg:-mt-40">
+                <div className="rounded-[2.5rem] bg-card border border-border shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+                    
+                    {/* LEFT SIDE: FORM */}
+                    <div className="flex-1 p-8 lg:p-14 bg-card">
+                        {submitted ? (
+                            <div className="text-center py-20">
+                                <div className="mx-auto h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                                    <CheckCircle className="h-10 w-10 text-primary" />
+                                </div>
+                                <h3 className="font-display text-3xl font-bold text-foreground">Thank you, {formData.name || "friend"}!</h3>
+                                <p className="mt-4 text-muted-foreground text-lg max-w-md mx-auto">
+                                    We have received your pledge of <span className="font-bold text-foreground">₹{finalAmount.toLocaleString("en-IN")}</span>. Our team will contact you shortly at {formData.email || "the provided contact"}.
+                                </p>
+                                <div className="mt-10 flex flex-wrap justify-center gap-4">
+                                    <button
+                                        onClick={() => {
+                                            setSubmitted(false);
+                                            setFormData({ name: "", email: "", phone: "", pan: "", city: "", state: "", cause: "run-for-sindhu", message: "" });
+                                            setAmount(1000);
+                                            setCustomAmount("");
+                                        }}
+                                        className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-8 py-3.5 font-bold hover:bg-primary/90 transition shadow-elegant"
+                                    >
+                                        Donate Again
+                                    </button>
+                                </div>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-10">
+                                
+                                {/* TAX BENEFITS HORIZONTAL CARDS */}
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                                    <div className="bg-muted/30 rounded-xl p-4 border border-border/50 flex flex-col gap-2 shadow-sm">
+                                        <div className="h-6 w-6 rounded-full bg-green-500/10 text-green-600 flex items-center justify-center shrink-0">
+                                            <CheckCircle className="h-3.5 w-3.5" />
                                         </div>
-                                        <h3 className="font-display text-2xl font-bold text-foreground">Thank you, {formData.name || "friend"}!</h3>
-                                        <p className="mt-3 text-muted-foreground max-w-md mx-auto">
-                                            We have received your pledge of <span className="font-semibold text-foreground">₹{finalAmount.toLocaleString("en-IN")}</span>. Our team will contact you shortly at {formData.email || "the provided contact"} with payment instructions and a receipt.
-                                        </p>
-                                        <div className="mt-8 flex flex-wrap justify-center gap-4">
-                                            <Link
-                                                href="/"
-                                                className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-6 py-2.5 text-sm font-semibold hover:bg-primary/90 transition shadow-elegant"
-                                            >
-                                                Back to Home
-                                            </Link>
-                                            <button
-                                                onClick={() => {
-                                                    setSubmitted(false);
-                                                    setFormData({ name: "", email: "", phone: "", pan: "", cause: "run-for-sindhu", message: "" });
-                                                    setAmount(1000);
-                                                    setCustomAmount("");
-                                                }}
-                                                className="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-6 py-2.5 text-sm font-semibold hover:opacity-90 transition"
-                                            >
-                                                Donate Again
-                                            </button>
+                                        <div className="text-xs font-semibold leading-relaxed">
+                                            Eligible for <strong className="text-foreground">80G tax exemption</strong>
                                         </div>
                                     </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-6">
-                                        {/* AMOUNT */}
-                                        <div className="space-y-3">
-                                            <Label className="text-base font-semibold">Select donation amount</Label>
-                                            <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
-                                                {presets.map((p) => (
-                                                    <button
-                                                        key={p}
-                                                        type="button"
-                                                        onClick={() => setAmount(p)}
-                                                        className={`rounded-xl border px-3 py-3 text-sm font-semibold transition ${amount === p
-                                                            ? "bg-primary text-primary-foreground border-primary"
-                                                            : "bg-card border-border text-foreground hover:border-primary/50"
-                                                            }`}
-                                                    >
-                                                        ₹{p.toLocaleString("en-IN")}
-                                                    </button>
-                                                ))}
-                                            </div>
-                                            <div className="flex items-center gap-3 pt-1">
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setAmount("custom")}
-                                                    className={`rounded-xl border px-4 py-3 text-sm font-semibold transition ${amount === "custom"
-                                                        ? "bg-primary text-primary-foreground border-primary"
-                                                        : "bg-card border-border text-foreground hover:border-primary/50"
-                                                        }`}
-                                                >
-                                                    Custom
-                                                </button>
-                                                {amount === "custom" && (
-                                                    <div className="relative flex-1 max-w-[16rem]">
-                                                        <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                                        <Input
-                                                            type="number"
-                                                            min={1}
-                                                            required
-                                                            placeholder="Enter amount"
-                                                            value={customAmount}
-                                                            onChange={(e) => setCustomAmount(e.target.value)}
-                                                            className="pl-9"
-                                                        />
-                                                    </div>
-                                                )}
-                                            </div>
+                                    <div className="bg-muted/30 rounded-xl p-4 border border-border/50 flex flex-col gap-2 shadow-sm">
+                                        <div className="h-6 w-6 rounded-full bg-green-500/10 text-green-600 flex items-center justify-center shrink-0">
+                                            <CheckCircle className="h-3.5 w-3.5" />
                                         </div>
-
-                                        {/* DONOR DETAILS */}
-                                        <div className="grid sm:grid-cols-2 gap-5">
-                                            <div className="space-y-2">
-                                                <Label htmlFor="name">Full name</Label>
-                                                <Input
-                                                    id="name"
-                                                    required
-                                                    maxLength={100}
-                                                    placeholder="Your full name"
-                                                    value={formData.name}
-                                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                />
-                                            </div>
-                                            <div className="space-y-2">
-                                                <Label htmlFor="email">Email address</Label>
-                                                <Input
-                                                    id="email"
-                                                    type="email"
-                                                    required
-                                                    maxLength={255}
-                                                    placeholder="you@example.com"
-                                                    value={formData.email}
-                                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                />
-                                            </div>
-                                            <div className="space-y-2">
-                                                <Label htmlFor="phone">Phone number</Label>
-                                                <Input
-                                                    id="phone"
-                                                    type="tel"
-                                                    required
-                                                    minLength={10}
-                                                    maxLength={15}
-                                                    placeholder="+91 98765 43210"
-                                                    value={formData.phone}
-                                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                />
-                                            </div>
-                                            <div className="space-y-2">
-                                                <Label htmlFor="pan">PAN number (for 80G receipt)</Label>
-                                                <Input
-                                                    id="pan"
-                                                    maxLength={10}
-                                                    placeholder="ABCDE1234F"
-                                                    value={formData.pan}
-                                                    onChange={(e) => setFormData({ ...formData, pan: e.target.value.toUpperCase() })}
-                                                />
-                                            </div>
+                                        <div className="text-xs font-semibold leading-relaxed">
+                                            <strong className="text-foreground">100%</strong> supports your chosen cause
                                         </div>
+                                    </div>
+                                    <div className="bg-muted/30 rounded-xl p-4 border border-border/50 flex flex-col gap-2 shadow-sm">
+                                        <div className="h-6 w-6 rounded-full bg-green-500/10 text-green-600 flex items-center justify-center shrink-0">
+                                            <CheckCircle className="h-3.5 w-3.5" />
+                                        </div>
+                                        <div className="text-xs font-semibold leading-relaxed">
+                                            Digital receipt sent instantly
+                                        </div>
+                                    </div>
+                                </div>
 
-                                        <div className="space-y-2">
-                                            <Label htmlFor="cause">I want to support</Label>
-                                            <Select
-                                                value={formData.cause}
-                                                onValueChange={(value) => setFormData({ ...formData, cause: value })}
+                                <div className="space-y-6">
+                                    <div className="flex items-center justify-between border-b pb-4">
+                                        <h2 className="font-display text-2xl font-bold">1. Select Amount</h2>
+                                    </div>
+                                    <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+                                        {presets.map((p) => (
+                                            <button
+                                                key={p}
+                                                type="button"
+                                                onClick={() => setAmount(p)}
+                                                className={`rounded-2xl border-2 px-2 py-4 text-sm font-bold transition-all duration-300 ${amount === p
+                                                    ? "bg-primary text-primary-foreground border-primary shadow-md scale-[1.02]"
+                                                    : "bg-background border-border text-foreground hover:border-primary/40 hover:bg-muted/50"
+                                                    }`}
                                             >
-                                                <SelectTrigger id="cause" className="w-full">
-                                                    <SelectValue placeholder="Select a cause" />
+                                                ₹{p.toLocaleString("en-IN")}
+                                            </button>
+                                        ))}
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <button
+                                            type="button"
+                                            onClick={() => setAmount("custom")}
+                                            className={`shrink-0 rounded-2xl border-2 px-6 py-4 text-sm font-bold transition-all duration-300 ${amount === "custom"
+                                                ? "bg-primary text-primary-foreground border-primary shadow-md scale-[1.02]"
+                                                : "bg-background border-border text-foreground hover:border-primary/40 hover:bg-muted/50"
+                                                }`}
+                                        >
+                                            Custom
+                                        </button>
+                                        <div className={`relative flex-1 max-w-[20rem] transition-all duration-500 overflow-hidden ${amount === "custom" ? "opacity-100 max-w-[20rem]" : "opacity-0 max-w-0"}`}>
+                                            <IndianRupee className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                                            <Input
+                                                type="number"
+                                                min={1}
+                                                required={amount === "custom"}
+                                                placeholder="Enter amount"
+                                                value={customAmount}
+                                                onChange={(e) => setCustomAmount(e.target.value)}
+                                                className="pl-11 h-14 rounded-2xl text-lg font-bold bg-background border-2 focus-visible:ring-primary/20"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-6">
+                                    <div className="flex items-center justify-between border-b pb-4">
+                                        <h2 className="font-display text-2xl font-bold">2. Your Details</h2>
+                                    </div>
+                                    <div className="grid sm:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <Label htmlFor="name" className="text-muted-foreground font-semibold">Full name</Label>
+                                            <Input
+                                                id="name"
+                                                required
+                                                placeholder="Your full name"
+                                                value={formData.name}
+                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                className="h-12 bg-muted/30 border-border/60 focus-visible:border-primary focus-visible:ring-primary/20 shadow-sm"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="email" className="text-muted-foreground font-semibold">Email address</Label>
+                                            <Input
+                                                id="email"
+                                                type="email"
+                                                required
+                                                placeholder="you@example.com"
+                                                value={formData.email}
+                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                className="h-12 bg-muted/30 border-border/60 focus-visible:border-primary focus-visible:ring-primary/20 shadow-sm"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="phone" className="text-muted-foreground font-semibold">Phone number</Label>
+                                            <Input
+                                                id="phone"
+                                                type="tel"
+                                                required
+                                                placeholder="+91 98765 43210"
+                                                value={formData.phone}
+                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                className="h-12 bg-muted/30 border-border/60 focus-visible:border-primary focus-visible:ring-primary/20 shadow-sm"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="pan" className="text-muted-foreground font-semibold">PAN number (for 80G)</Label>
+                                            <Input
+                                                id="pan"
+                                                placeholder="ABCDE1234F"
+                                                value={formData.pan}
+                                                onChange={(e) => setFormData({ ...formData, pan: e.target.value.toUpperCase() })}
+                                                className="h-12 bg-muted/30 border-border/60 focus-visible:border-primary focus-visible:ring-primary/20 uppercase shadow-sm"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="city" className="text-muted-foreground font-semibold">City</Label>
+                                            <Input
+                                                id="city"
+                                                placeholder="Your city"
+                                                value={formData.city}
+                                                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                                                className="h-12 bg-muted/30 border-border/60 focus-visible:border-primary focus-visible:ring-primary/20 shadow-sm"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="state" className="text-muted-foreground font-semibold">State</Label>
+                                            <Select
+                                                value={formData.state}
+                                                onValueChange={(value) => setFormData({ ...formData, state: value })}
+                                            >
+                                                <SelectTrigger id="state" className="h-12 bg-muted/30 border-border/60 focus:ring-primary/20 focus:border-primary shadow-sm">
+                                                    <SelectValue placeholder="Select state" />
                                                 </SelectTrigger>
                                                 <SelectContent>
-                                                    {causes.map((c) => (
-                                                        <SelectItem key={c.value} value={c.value}>
-                                                            {c.label}
+                                                    {indianStates.map((state) => (
+                                                        <SelectItem key={state} value={state} className="font-medium cursor-pointer">
+                                                            {state}
                                                         </SelectItem>
                                                     ))}
                                                 </SelectContent>
                                             </Select>
                                         </div>
+                                    </div>
 
-                                        <div className="space-y-2">
-                                            <Label htmlFor="message">Message (optional)</Label>
-                                            <Textarea
-                                                id="message"
-                                                maxLength={500}
-                                                placeholder="Why are you donating? Any message for the team?"
-                                                value={formData.message}
-                                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                            />
-                                        </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="cause" className="text-muted-foreground font-semibold">I want to support</Label>
+                                        <Select
+                                            value={formData.cause}
+                                            onValueChange={(value) => setFormData({ ...formData, cause: value })}
+                                        >
+                                            <SelectTrigger id="cause" className="h-12 bg-muted/30 border-border/60 focus:ring-primary/20 focus:border-primary shadow-sm">
+                                                <SelectValue placeholder="Select a cause" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {causes.map((c) => (
+                                                    <SelectItem key={c.value} value={c.value} className="font-medium cursor-pointer">
+                                                        {c.label}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
 
-                                        <div className="pt-2">
-                                            <Button
-                                                type="submit"
-                                                disabled={isLoading}
-                                                className="w-full h-12 rounded-full text-base font-semibold shadow-elegant"
-                                            >
-                                                {isLoading ? "Initiating Secure Payment..." : `Pledge ₹${finalAmount > 0 ? finalAmount.toLocaleString("en-IN") : "—"}`}
-                                            </Button>
-                                            <p className="mt-3 text-xs text-muted-foreground text-center">
-                                                You will be securely redirected to Easebuzz to complete your donation.
-                                            </p>
-                                        </div>
-                                    </form>
-                                )}
-                            </CardContent>
-                        </Card>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="message" className="text-muted-foreground font-semibold">Message (optional)</Label>
+                                        <Textarea
+                                            id="message"
+                                            placeholder="Why are you donating? Any message for the team?"
+                                            value={formData.message}
+                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                            className="min-h-[100px] bg-muted/30 border-border/60 focus-visible:border-primary focus-visible:ring-primary/20 resize-none shadow-sm"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="pt-6">
+                                    <Button
+                                        type="submit"
+                                        disabled={isLoading}
+                                        className="w-full h-16 rounded-2xl text-lg font-bold shadow-elegant group relative overflow-hidden"
+                                    >
+                                        <span className="relative z-10 flex items-center justify-center gap-2">
+                                            {isLoading ? "Initiating Secure Payment..." : `Donate ₹${finalAmount > 0 ? finalAmount.toLocaleString("en-IN") : "—"}`}
+                                            {!isLoading && <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />}
+                                        </span>
+                                    </Button>
+                                    <div className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground font-semibold">
+                                        <ShieldCheck className="h-4 w-4 text-green-500" />
+                                        You will be securely redirected to Easebuzz to complete your donation.
+                                    </div>
+                                </div>
+                            </form>
+                        )}
                     </div>
 
-                    {/* SIDEBAR INFO */}
-                    <div className="lg:col-span-2 space-y-6">
-                        <Card className="border-primary/20 bg-primary/[0.03]">
-                            <CardHeader>
-                                <CardTitle className="font-display text-xl flex items-center gap-2">
-                                    <ShieldCheck className="h-5 w-5 text-primary" /> Secure & Transparent
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4 text-sm text-foreground/80">
-                                <p>
-                                    <strong className="text-foreground">80G tax benefit:</strong> All donations are eligible for tax exemption under applicable Indian charity laws. Please provide a valid PAN.
-                                </p>
-                                <p>
-                                    <strong className="text-foreground">No hidden fees:</strong> 100% of your contribution is directed to the programme or cause you choose.
-                                </p>
-                                <p>
-                                    <strong className="text-foreground">Receipts:</strong> You will receive a digital receipt within 48 hours of payment confirmation.
-                                </p>
-                            </CardContent>
-                        </Card>
+                    {/* RIGHT SIDE: INFO & OFFLINE DONATION */}
+                    <div className="w-full lg:w-[400px] bg-background border-l border-border p-8 lg:p-10 flex flex-col gap-10 shrink-0">
+                        
+                        {/* BANK CARD UI */}
+                        <div>
+                            <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-bold mb-4 flex items-center gap-2">
+                                <Building2 className="h-4 w-4" /> Offline Donations
+                            </div>
+                            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary/90 p-6 text-primary-foreground shadow-lg border border-primary/20">
+                                <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                                <div className="absolute bottom-0 left-0 -ml-8 -mb-8 h-32 w-32 rounded-full bg-black/10 blur-2xl" />
+                                
+                                <div className="relative z-10 flex items-center justify-between mb-8">
+                                    <div className="font-bold text-lg tracking-wide">Bank Transfer</div>
+                                    <div className="text-xs font-medium px-2 py-1 bg-white/20 rounded-md backdrop-blur-sm">Au Small Finance</div>
+                                </div>
+                                
+                                <div className="relative z-10 space-y-5">
+                                    <div>
+                                        <div className="text-[10px] uppercase tracking-[0.1em] text-primary-foreground/70 font-semibold mb-1">Account Name</div>
+                                        <div className="font-bold text-sm tracking-wide">SARV SEWA SASHKTIKARN SANGTHAN</div>
+                                    </div>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <div className="text-[10px] uppercase tracking-[0.1em] text-primary-foreground/70 font-semibold mb-1">Account Number</div>
+                                            <div className="font-mono text-sm font-bold tracking-widest bg-black/10 px-2 py-1 rounded inline-block">1821239219918931</div>
+                                        </div>
+                                        <div>
+                                            <div className="text-[10px] uppercase tracking-[0.1em] text-primary-foreground/70 font-semibold mb-1">IFSC Code</div>
+                                            <div className="font-mono text-sm font-bold tracking-widest bg-black/10 px-2 py-1 rounded inline-block">AUBL000239</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="font-display text-xl">What your donation does</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
+                        {/* IMPACT */}
+                        <div>
+                            <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-bold mb-4 flex items-center gap-2">
+                                <Heart className="h-4 w-4" /> What your donation does
+                            </div>
+                            <div className="space-y-3">
                                 {[
-                                    <span key="1">Sponsors educational resources and scholarships for underprivileged students. <Link href="/events/shiksha-sankalp" className="font-semibold text-primary hover:underline">Learn about Shiksha Sankalp →</Link></span>,
-                                    <span key="2">Supports grassroots sports and community engagement through local tournaments. <Link href="/events/run-for-sindhu" className="font-semibold text-primary hover:underline">Learn about Run for Sindhu →</Link></span>,
-                                    <span key="3">Facilitates life-saving blood donation camps and critical trauma care support. <Link href="/events/ssss-blood-donation" className="font-semibold text-primary hover:underline">Learn about Blood Donation →</Link></span>,
-                                    <span key="4">Funds women's empowerment initiatives and vital skill development programs. <Link href="/events/shakti-sankalp" className="font-semibold text-primary hover:underline">Learn about Shakti Sankalp →</Link></span>,
-                                    <span key="5">Enables educational youth excursions to experience our democratic institutions. <Link href="/events/sansad-darshan-yatra" className="font-semibold text-primary hover:underline">Learn about Sansad Yatra →</Link></span>,
+                                    { text: "Sponsors educational resources and scholarships for underprivileged students.", link: "/events/shiksha-sankalp", label: "Shiksha Sankalp" },
+                                    { text: "Supports grassroots sports and community engagement through local tournaments.", link: "/events/run-for-sindhu", label: "Run for Sindhu" },
+                                    { text: "Facilitates life-saving blood donation camps and critical trauma care support.", link: "/events/ssss-blood-donation", label: "Blood Donation" },
+                                    { text: "Funds women's empowerment initiatives and vital skill development programs.", link: "/events/shakti-sankalp", label: "Shakti Sankalp" },
+                                    { text: "Enables educational youth excursions to experience our democratic institutions.", link: "/events/sansad-darshan-yatra", label: "Sansad Yatra" },
                                 ].map((impact, idx) => (
-                                    <div key={idx} className="flex gap-4 items-start">
-                                        <div className="shrink-0 mt-1 h-2 w-2 rounded-full bg-primary" />
-                                        <p className="text-sm text-foreground/80 leading-snug">{impact}</p>
+                                    <div key={idx} className="group flex gap-4 items-start p-3.5 rounded-xl bg-muted/30 border border-border/50 hover:bg-muted transition-colors shadow-sm">
+                                        <div className="shrink-0 mt-0.5 h-2 w-2 rounded-full bg-primary/60 group-hover:bg-primary transition-colors" />
+                                        <div className="text-sm text-foreground/80 leading-snug">
+                                            {impact.text} <br />
+                                            <Link href={impact.link} className="inline-flex font-semibold text-primary hover:text-primary/80 transition-colors mt-1">
+                                                Learn about {impact.label} <ArrowRight className="h-4 w-4 ml-1 mt-[1px]" />
+                                            </Link>
+                                        </div>
                                     </div>
                                 ))}
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </div>
 
-                        <div className="rounded-2xl bg-band p-6 text-primary-foreground text-center">
-                            <div className="text-xs uppercase tracking-[0.18em] opacity-90">Prefer to talk?</div>
-                            <div className="mt-2 font-display text-2xl font-bold">+91-90563-33759</div>
-                            <p className="mt-2 text-sm opacity-90">info@sarvsewabharat.org</p>
+                        {/* CONTACT */}
+                        <div className="mt-auto pt-8 border-t border-border">
+                            <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-bold mb-4">Need Help?</div>
+                            <div className="flex items-center gap-3 text-sm font-semibold mb-3 hover:text-primary transition-colors">
+                                <Phone className="h-4 w-4 text-primary" /> +91 90563 33759
+                            </div>
+                            <div className="flex items-center gap-3 text-sm font-semibold hover:text-primary transition-colors">
+                                <Mail className="h-4 w-4 text-primary" /> info@sarvsewabharat.org
+                            </div>
                         </div>
                     </div>
                 </div>

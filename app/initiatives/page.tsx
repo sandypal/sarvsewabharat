@@ -6,9 +6,9 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Initiatives & Programs",
-  description: "Discover ongoing initiatives by Sarv Sewa Sashaktikaran Sangathan — Shiksha Sankalp, Shakti Sankalp and more.",
+  description: "Discover ongoing initiatives by Sarv Sewa Sashktikarn Sangthan — Shiksha Sankalp, Shakti Sankalp and more.",
   openGraph: {
-    title: "Initiatives | Sarv Sewa Sashaktikaran Sangathan",
+    title: "Initiatives | Sarv Sewa Sashktikarn Sangthan",
     description: "Support our ongoing programs. Find the cause that moves you.",
   },
 };

@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import BankInfoCard from "@/components/BankInfoCard";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -101,7 +102,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg">Visit Us</h3>
                     <p className="text-muted-foreground mt-1">
-                      Sarv Sewa Sashaktikaran Sangathan<br />
+                      Sarv Sewa Sashktikarn Sangthan<br />
                       AT- 708, Street No 18, Ambedkar Nagar,<br />
                       Giaspura, Ludhiana - 141016,<br />
                       Punjab, India
@@ -110,6 +111,8 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
+
+            <BankInfoCard />
           </div>
 
           {/* CONTACT FORM */}

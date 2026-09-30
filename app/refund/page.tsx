@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Refund & Cancellation Policy",
   description:
-    "Refund and cancellation policy for donations made to Sarv Sewa Sashaktikaran Sangathan.",
+    "Refund and cancellation policy for donations made to Sarv Sewa Sashktikarn Sangthan.",
   robots: { index: false, follow: true },
 };
 
@@ -15,12 +15,12 @@ export default function RefundPage() {
         
         <div className="prose prose-slate dark:prose-invert max-w-none text-foreground/80 space-y-6">
           <p>
-            At Sarv Sewa Sashaktikaran Sangathan, we are grateful for your donations and support for our various causes, such as education, sports, tree plantation, and blood donation.
+            At Sarv Sewa Sashktikarn Sangthan, we are grateful for your donations and support for our various causes, such as education, sports, tree plantation, and blood donation.
           </p>
 
           <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">1. Donation Cancellations</h2>
           <p>
-            Donations made to Sarv Sewa Sashaktikaran Sangathan are generally non-refundable. However, we recognize that circumstances may arise where a refund is necessary. If you have made an error in making your donation, please contact us within 7 days.
+            Donations made to Sarv Sewa Sashktikarn Sangthan are generally non-refundable. However, we recognize that circumstances may arise where a refund is necessary. If you have made an error in making your donation, please contact us within 7 days.
           </p>
 
           <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">2. Refund Requests</h2>

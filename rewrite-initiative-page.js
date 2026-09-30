@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+const fs = require('fs');
+
+const content = `import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { initiativesData, initiativesList } from "@/lib/events-data";
-import BankInfoCard from "@/components/BankInfoCard";
-import GalleryLightbox from "@/components/GalleryLightbox";
 
 export async function generateStaticParams() {
   return initiativesList.map((event) => ({
@@ -23,12 +23,12 @@ export async function generateMetadata({
       title: "Initiative Not Found",
     };
   }
-  const description = `${event.tagline}. ${event.description[0].slice(0, 140)}…`;
+  const description = \`\${event.tagline}. \${event.description[0].slice(0, 140)}…\`;
   return {
     title: event.title,
     description,
     openGraph: {
-      title: `${event.title} | Sarv Sewa Sashktikarn Sangthan`,
+      title: \`\${event.title} | Sarv Sewa Sashktikarn Sangthan\`,
       description,
       images: [
         {
@@ -39,7 +39,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${event.title} | Sarv Sewa Sashktikarn Sangthan`,
+      title: \`\${event.title} | Sarv Sewa Sashktikarn Sangthan\`,
       description,
       images: [event.img.src],
     },
@@ -76,11 +76,6 @@ export default async function InitiativePage({
         
         <div className="mx-auto max-w-6xl px-6 relative z-10 grid lg:grid-cols-[1fr_0.8fr] gap-12 lg:gap-16 items-center">
           <div>
-            {event.logo && (
-              <div className="mb-6 relative h-28 w-28 rounded-full overflow-hidden border-4 border-background shadow-xl bg-white">
-                <Image src={event.logo} alt={`${event.title} Logo`} fill className="object-contain p-2" />
-              </div>
-            )}
             <span className="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
               Program: {event.tag}
             </span>
@@ -124,23 +119,6 @@ export default async function InitiativePage({
                 ))}
               </ul>
             </div>
-
-            {event.gallery && event.gallery.length > 0 && (
-              <GalleryLightbox images={event.gallery} />
-            )}
-
-            <div className="mt-12 rounded-3xl bg-accent text-accent-foreground p-8 lg:p-12 text-center shadow-elegant relative overflow-hidden">
-              <div className="absolute -top-12 -right-12 h-40 w-40 bg-white/10 rounded-full blur-3xl" />
-              <div className="absolute -bottom-12 -left-12 h-40 w-40 bg-white/10 rounded-full blur-3xl" />
-              <h3 className="font-display font-bold text-3xl mb-4 relative z-10">Support this cause</h3>
-              <p className="text-lg text-accent-foreground/90 mb-8 relative z-10 max-w-xl mx-auto">Your contribution helps us expand our reach and impact more lives across the nation.</p>
-              <Link
-                href={`/donate?cause=${event.slug}`}
-                className="inline-flex items-center justify-center rounded-full bg-background text-foreground px-8 py-4 font-bold text-lg hover:scale-105 transition-transform duration-300 relative z-10 shadow-lg"
-              >
-                Donate Now
-              </Link>
-            </div>
           </div>
 
           {/* SIDEBAR */}
@@ -153,45 +131,28 @@ export default async function InitiativePage({
               <div className="bg-muted/50 p-6 border-b border-border">
                 <h3 className="font-bold text-foreground flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-green-500" />
-                  Our Promise
+                  Program Details
                 </h3>
               </div>
               <div className="p-6 space-y-6">
-                <div className="text-sm font-medium text-foreground/85 leading-relaxed italic border-l-2 border-primary/20 pl-4 mb-4">
-                  "Empowering communities with purpose and dedication. We ensure every effort reaches those who need it most."
-                </div>
                 <InfoRow label="Status" value={event.date} />
                 <InfoRow label="Coverage Area" value={event.location} />
                 <InfoRow label="Contact Email" value={event.contactEmail} />
-                {(!event.coordinators || event.coordinators.length === 0) && (
-                  <InfoRow label="Helpline" value={event.contactPhone} />
-                )}
+                <InfoRow label="Helpline" value={event.contactPhone} />
               </div>
             </div>
 
-            {event.coordinators && event.coordinators.length > 0 && (
-              <div className="rounded-3xl bg-card border border-border shadow-elegant overflow-hidden">
-                <div className="bg-muted/50 p-6 border-b border-border">
-                  <h3 className="font-bold text-foreground flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
-                    Campaign Leadership
-                  </h3>
-                </div>
-                <div className="p-6 space-y-6">
-                  {event.coordinators.map((c: any, i: number) => (
-                    <div key={i} className="border-l-2 border-primary/20 pl-4">
-                      <div className="inline-flex rounded-full bg-primary text-primary-foreground px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider mb-2">
-                        {c.role}
-                      </div>
-                      <div className="font-display text-xl font-bold uppercase text-foreground tracking-tight">{c.name}</div>
-                      <div className="text-sm font-bold text-green-600 mt-1">{c.phone}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <BankInfoCard />
+            <div className="rounded-3xl bg-accent text-accent-foreground p-8 text-center shadow-elegant relative overflow-hidden">
+              <div className="absolute -top-12 -right-12 h-32 w-32 bg-white/10 rounded-full blur-2xl" />
+              <h3 className="font-bold text-2xl mb-3 relative z-10">Support this cause</h3>
+              <p className="text-sm text-accent-foreground/90 mb-8 relative z-10 font-medium">Your contribution helps us expand our reach and impact more lives.</p>
+              <Link
+                href={\`/donate?cause=\${event.slug}\`}
+                className="inline-flex w-full items-center justify-center rounded-full bg-background text-foreground px-6 py-3.5 font-bold hover:scale-105 transition-transform duration-300 relative z-10 shadow-sm"
+              >
+                Donate Now
+              </Link>
+            </div>
           </aside>
         </div>
       </section>
@@ -200,11 +161,13 @@ export default async function InitiativePage({
 }
 
 function InfoRow({ label, value }: { label: string; value: string }) {
-  const isPhone = label === "Helpline" || label === "Phone";
   return (
     <div>
       <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground font-bold">{label}</div>
-      <div className={`mt-1 leading-relaxed ${isPhone ? "text-2xl font-black text-accent tracking-tight" : "text-foreground font-semibold"}`}>{value}</div>
+      <div className="mt-1 text-foreground font-semibold leading-relaxed">{value}</div>
     </div>
   );
 }
+\`;
+
+fs.writeFileSync('app/initiatives/[slug]/page.tsx', content);

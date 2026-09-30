@@ -2,7 +2,9 @@ import { eventsList } from "@/lib/events-data";
 import Link from "next/link";
 import Image from "next/image";
 
-const events = eventsList.map((e) => ({
+const events = eventsList
+  .filter((e) => e.date.includes("2026"))
+  .map((e) => ({
     slug: e.slug,
     title: e.title,
     tag: e.tag,

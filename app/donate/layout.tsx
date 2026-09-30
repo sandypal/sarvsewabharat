@@ -3,23 +3,23 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Donate",
   description:
-    "Support Sarv Sewa Sashaktikaran Sangathan. Your donation funds education, health camps, blood donation drives, and women empowerment programs. 80G tax exemption available.",
+    "Support Sarv Sewa Sashktikarn Sangthan. Your donation funds education, health camps, blood donation drives, and women empowerment programs. 80G tax exemption available.",
   keywords: [
     "Donate NGO India",
     "80G Tax Exemption Donation",
     "Support Education India",
     "Blood Donation Camp India",
     "Women Empowerment Donation",
-    "Sarv Sewa Sashaktikaran Sangathan Donate",
+    "Sarv Sewa Sashktikarn Sangthan Donate",
   ],
   openGraph: {
-    title: "Donate | Sarv Sewa Sashaktikaran Sangathan",
+    title: "Donate | Sarv Sewa Sashktikarn Sangthan",
     description:
       "Every rupee you donate becomes a sapling, a blood unit, a scholarship, or a meal. Support our mission today.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Donate | Sarv Sewa Sashaktikaran Sangathan",
+    title: "Donate | Sarv Sewa Sashktikarn Sangthan",
     description:
       "Every rupee you donate becomes a sapling, a blood unit, a scholarship, or a meal. Support our mission today.",
   },
