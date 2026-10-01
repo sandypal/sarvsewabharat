@@ -1,10 +1,8 @@
-import { eventsList } from "@/lib/events-data";
+import { initiativesList } from "@/lib/events-data";
 import Link from "next/link";
 import Image from "next/image";
 
-const events = eventsList
-  .filter((e) => e.date.includes("2026"))
-  .map((e) => ({
+const initiatives = initiativesList.map((e) => ({
     slug: e.slug,
     title: e.title,
     tag: e.tag,
@@ -14,24 +12,24 @@ const events = eventsList
 }));
 
 
-const Events = () => {
+const Initiatives = () => {
     return (
 
-        <section id="events" className="mx-auto max-w-7xl px-6 py-24 lg:py-32" >
+        <section id="initiatives" className="mx-auto max-w-7xl px-6 py-24 lg:py-32 bg-secondary/5 rounded-3xl mb-24" >
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
                 <div>
-                    <div className="text-xs uppercase tracking-[0.22em] text-accent font-semibold">What We Do</div>
+                    <div className="text-xs uppercase tracking-[0.22em] text-accent font-semibold">Our Programs</div>
                     <h2 className="mt-3 font-display text-4xl lg:text-5xl font-bold text-foreground max-w-2xl">
-                        Events that build a stronger, kinder, greener Bharat.
+                        Initiatives that make a lasting impact.
                     </h2>
                 </div>
                 <p className="max-w-md text-muted-foreground">
-                    From the starting line of <em>Run for Sindhu</em> to the community classrooms of <em>Shiksha Sankalp</em>, every event is an invitation to serve.
+                    From the community classrooms of <em>Shiksha Sankalp</em> to women empowerment via <em>Shakti Sankalp</em>, our ongoing causes need your support.
                 </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-                {events.map((e) => (
+                {initiatives.map((e) => (
                     <article key={e.title} className="group relative overflow-hidden rounded-3xl bg-card border border-border shadow-elegant hover:-translate-y-1 transition-all duration-500">
                         <div className="relative aspect-[16/10] overflow-hidden">
                             <Image src={e.img} alt={e.title} loading="lazy" width={1280} height={832} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -46,8 +44,8 @@ const Events = () => {
                         </div>
                         <div className="p-7">
                             <p className="text-foreground/75 leading-relaxed">{e.copy}</p>
-                            <Link href={`/events/${e.slug}`} className="mt-5 inline-flex items-center gap-2 font-semibold text-primary group-hover:gap-3 transition-all">
-                                View event details
+                            <Link href={`/initiatives/${e.slug}`} className="mt-5 inline-flex items-center gap-2 font-semibold text-primary group-hover:gap-3 transition-all">
+                                View initiative details
                                 <span aria-hidden>→</span>
                             </Link>
                         </div>
@@ -58,4 +56,4 @@ const Events = () => {
     );
 };
 
-export default Events;
+export default Initiatives;

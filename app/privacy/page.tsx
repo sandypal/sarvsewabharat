@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy policy outlining how Sarv Sewa Sashaktikaran Sangathan collects, uses, and protects your personal data.",
+    "Privacy policy outlining how Sarv Sewa Sashktikarn Sangthan collects, uses, and protects your personal data.",
   robots: { index: false, follow: true },
 };
 
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         
         <div className="prose prose-slate dark:prose-invert max-w-none text-foreground/80 space-y-6">
           <p>
-            At Sarv Sewa Sashaktikaran Sangathan, we are committed to protecting the privacy and security of our donors, volunteers, and website visitors. This Privacy Policy explains how we collect, use, and safeguard your personal information.
+            At Sarv Sewa Sashktikarn Sangthan, we are committed to protecting the privacy and security of our donors, volunteers, and website visitors. This Privacy Policy explains how we collect, use, and safeguard your personal information.
           </p>
 
           <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">1. Information We Collect</h2>

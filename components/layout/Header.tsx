@@ -11,6 +11,7 @@ const Header = ({ title }: HeaderProps) => {
                 <Logo />
                 <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
                     <a href="/events" className="hover:text-primary transition">Events</a>
+                    <a href="/initiatives" className="hover:text-primary transition">Initiatives</a>
                     <a href="/#impact" className="hover:text-primary transition">Impact</a>
                     <a href="/about" className="hover:text-primary transition">About</a>
                     <a href="/contact" className="hover:text-primary transition">Contact</a>

@@ -1,5 +1,5 @@
 import Header from "./layout/Header"
 
 export function SiteHeader() {
-  return <Header title="Sarv Sewa Sashaktikaran Sangathan" />
+  return <Header title="Sarv Sewa Sashktikarn Sangthan" />
 }

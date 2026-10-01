@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import BankInfoCard from "@/components/BankInfoCard";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,11 +17,36 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Wire up backend
-    setSubmitted(true);
+    setIsLoading(true);
+    setError("");
+    
+    try {
+      const response = await fetch("https://sarvsewabharat.org/api/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.status === "success") {
+        setSubmitted(true);
+      } else {
+        setError(data.message || "Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      setError("Unable to connect to the server. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -76,7 +102,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg">Visit Us</h3>
                     <p className="text-muted-foreground mt-1">
-                      Sarv Sewa Sashaktikaran Sangathan<br />
+                      Sarv Sewa Sashktikarn Sangthan<br />
                       AT- 708, Street No 18, Ambedkar Nagar,<br />
                       Giaspura, Ludhiana - 141016,<br />
                       Punjab, India
@@ -85,6 +111,8 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
+
+            <BankInfoCard />
           </div>
 
           {/* CONTACT FORM */}
@@ -107,13 +135,21 @@ export default function ContactPage() {
                       Thank you for reaching out. We have received your message and will respond to you shortly.
                     </p>
                     <div className="mt-8">
-                      <Button onClick={() => setSubmitted(false)} variant="outline" className="rounded-full">
+                      <Button onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: "", email: "", phone: "", message: "" });
+                      }} variant="outline" className="rounded-full">
                         Send Another Message
                       </Button>
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {error && (
+                      <div className="p-3 bg-red-50 text-red-600 rounded-md text-sm">
+                        {error}
+                      </div>
+                    )}
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <Label htmlFor="name">Full Name</Label>
@@ -158,8 +194,8 @@ export default function ContactPage() {
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       />
                     </div>
-                    <Button type="submit" className="w-full h-12 rounded-full text-base font-semibold shadow-elegant">
-                      Send Message
+                    <Button disabled={isLoading} type="submit" className="w-full h-12 rounded-full text-base font-semibold shadow-elegant">
+                      {isLoading ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 )}

@@ -5,9 +5,9 @@ import community from "@/public/community.jpg";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Sarv Sewa Sashaktikaran Sangathan — our story, mission, values and the volunteers powering a decade of community service across India.",
+  description: "Learn about Sarv Sewa Sashktikarn Sangthan — our story, mission, values and the volunteers powering a decade of community service across India.",
   openGraph: {
-    title: "About Us | Sarv Sewa Sashaktikaran Sangathan",
+    title: "About Us | Sarv Sewa Sashktikarn Sangthan",
     description: "A decade of service. 3,000+ volunteers. One mission — a stronger, kinder, greener Bharat.",
   },
 };
@@ -18,7 +18,7 @@ const values = [
     desc: "Service above self. Every action we take is rooted in the belief that giving back is the highest form of gratitude.",
   },
   {
-    title: "Sangathan",
+    title: "Sangthan",
     desc: "Strength in unity. We bring together people from every background, knowing that collective effort outlasts individual effort.",
   },
   {
@@ -34,7 +34,7 @@ const values = [
 const timeline = [
   { year: "2014", title: "The First Step", desc: "A circle of college friends in Delhi decides to organise a small blood donation camp. 47 donors show up. The seed is planted." },
   { year: "2016", title: "Run for Sindhu", desc: "Inspired by a young girl's fight for education, the first marathon is organised. 300 runners raise enough to sponsor a full year of school for 120 children." },
-  { year: "2018", title: "District Expansion", desc: "The Sangathan grows beyond the capital, setting up volunteer chapters in 6 neighbouring districts." },
+  { year: "2018", title: "District Expansion", desc: "The Sangthan grows beyond the capital, setting up volunteer chapters in 6 neighbouring districts." },
   { year: "2020", title: "Pandemic Response", desc: "When COVID-19 hits, volunteers pivot to distribute ration kits, run plasma donation drives and set up oxygen langars." },
   { year: "2023", title: "1 Lakh Trees", desc: "Vriksh Bandhan crosses the milestone of 1,00,000 saplings planted across schools, panchayats and highways." },
   { year: "2024", title: "A Decade of Service", desc: "10 years, 240+ events, 3,000+ volunteers and over 1,20,000 lives touched. The journey continues." },
@@ -55,7 +55,7 @@ export default function AboutPage() {
             A decade of taking one step forward — <span className="text-secondary">together.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/85 leading-relaxed">
-            Born from a small circle of friends in 2014, Sarv Sewa Sashaktikaran Sangathan has grown into a network of 3,000+ volunteers across 12 districts. We believe sport, service and sustainability are the three roots of a confident society.
+            Born from a small circle of friends in 2014, Sarv Sewa Sashktikarn Sangthan has grown into a network of 3,000+ volunteers across 12 districts. We believe sport, service and sustainability are the three roots of a confident society.
           </p>
         </div>
         <div className="relative h-16 bg-gradient-to-b from-transparent to-background" />
@@ -176,7 +176,7 @@ export default function AboutPage() {
               Be part of the next chapter.
             </h2>
             <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
-              Whether you run, plant, donate or simply show up — there is a place for you in this Sangathan.
+              Whether you run, plant, donate or simply show up — there is a place for you in this Sangthan.
             </p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center">
               <Link

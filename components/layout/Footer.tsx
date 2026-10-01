@@ -8,9 +8,9 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 pb-12 lg:pb-16">
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-3 mb-6">
-                            <img src={logo.src} alt="Sarv Sewa Sashaktikaran Sangathan logo" width={44} height={44} className="h-11 w-11 rounded-full ring-2 ring-secondary/40" />
+                            <img src={logo.src} alt="Sarv Sewa Sashktikarn Sangthan logo" width={44} height={44} className="h-11 w-11 rounded-full ring-2 ring-secondary/40" />
                             <div className="leading-tight">
-                                <div className="font-display font-bold text-lg">Sarv Sewa Sashaktikaran Sangathan</div>
+                                <div className="font-display font-bold text-lg">Sarv Sewa Sashktikarn Sangthan</div>
                                 <div className="text-sm text-white/70">एक कदम मानवता की ओर</div>
                             </div>
                         </div>

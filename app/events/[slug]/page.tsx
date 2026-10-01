@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { eventsData, eventsList } from "@/lib/events-data";
+import BankInfoCard from "@/components/BankInfoCard";
+import GalleryLightbox from "@/components/GalleryLightbox";
 
 export async function generateStaticParams() {
   return eventsList.map((event) => ({
@@ -26,7 +28,7 @@ export async function generateMetadata({
     title: event.title,
     description,
     openGraph: {
-      title: `${event.title} | Sarv Sewa Sashaktikaran Sangathan`,
+      title: `${event.title} | Sarv Sewa Sashktikarn Sangthan`,
       description,
       images: [
         {
@@ -37,7 +39,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${event.title} | Sarv Sewa Sashaktikaran Sangathan`,
+      title: `${event.title} | Sarv Sewa Sashktikarn Sangthan`,
       description,
       images: [event.img.src],
     },
@@ -113,6 +115,25 @@ export default async function EventPage({
                 </li>
               ))}
             </ul>
+
+            {event.gallery && event.gallery.length > 0 && (
+              <GalleryLightbox images={event.gallery} />
+            )}
+
+            {event.pressReleases && event.pressReleases.length > 0 && (
+              <div className="mt-16">
+                <h3 className="font-display text-2xl font-bold text-foreground">Press Releases & News</h3>
+                <div className="mt-6 space-y-4">
+                  {event.pressReleases.map((pr: any, idx: number) => (
+                    <Link key={idx} href={pr.url} className="block group p-5 rounded-2xl border border-border bg-card hover:border-primary/30 transition shadow-sm hover:shadow-md">
+                      <div className="text-sm text-muted-foreground font-medium mb-1">{pr.date}</div>
+                      <div className="text-foreground font-semibold text-lg group-hover:text-primary transition">{pr.title}</div>
+                      <div className="mt-3 text-sm font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">Read more <span>→</span></div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* SIDEBAR */}
@@ -138,6 +159,7 @@ export default async function EventPage({
                 Contact Coordinator
               </Link>
             </div>
+            <BankInfoCard />
           </aside>
         </div>
       </section>
@@ -146,10 +168,11 @@ export default async function EventPage({
 }
 
 function InfoRow({ label, value }: { label: string; value: string }) {
+  const isPhone = label === "Helpline" || label === "Phone";
   return (
     <div>
       <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">{label}</div>
-      <div className="mt-1 text-foreground font-medium leading-relaxed">{value}</div>
+      <div className={`mt-1 leading-relaxed ${isPhone ? "text-2xl font-black text-accent tracking-tight" : "text-foreground font-medium"}`}>{value}</div>
     </div>
   );
 }
