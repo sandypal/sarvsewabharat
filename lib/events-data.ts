@@ -10,6 +10,8 @@ import shikshaGal1 from "@/public/shiksha-gal-1.jpg";
 import shikshaGal2 from "@/public/shiksha-gal-2.jpg";
 import shikshaGal3 from "@/public/shiksha-gal-3.jpg";
 import shikshaGal4 from "@/public/shiksha-gal-4.jpg";
+import karanSama from "@/public/karan-sama.jpg";
+import karanBatti from "@/public/karan-batti.jpg";
 import { StaticImageData } from "next/image";
 
 export type EventDetails = {
@@ -254,8 +256,20 @@ export const initiativesData: Record<string, EventDetails> = {
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-98551-09159",
     coordinators: [
-      { role: "CONVENOR", name: "KARAN SAMA", phone: "+91 98551 09159" },
-      { role: "CO-CONVENOR", name: "KARAN BATTI", phone: "+91 95927 43434" }
+      { 
+        role: "CONVENOR", 
+        name: "KARAN SAMA", 
+        phone: "+91 98551 09159", 
+        photo: karanSama,
+        description: "A dedicated leader guiding the vision of Shiksha Sankalp and working towards creating meaningful educational opportunities for students. His leadership helps drive the campaign forward with commitment, purpose, and a strong focus on empowering young learners."
+      },
+      { 
+        role: "CO-CONVENOR", 
+        name: "KARAN BATTI", 
+        phone: "+91 95927 43434", 
+        photo: karanBatti,
+        description: "A committed leader who works alongside the Convenor to transform the vision of Shiksha Sankalp into meaningful action. Through strategic coordination, collaboration, and dedicated execution, he plays a vital role in expanding educational opportunities and creating lasting impact."
+      }
     ],
     gallery: [shikshaGal1, shikshaGal2, shikshaGal3, shikshaGal4]
   },

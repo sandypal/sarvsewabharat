@@ -30,14 +30,14 @@ export default function GalleryLightbox({ images }: { images: any[] }) {
                 {images.map((img: any, idx: number) => (
                     <div 
                         key={idx} 
-                        className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm cursor-pointer group"
+                        className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm cursor-pointer group bg-white/50"
                         onClick={() => setSelectedIndex(idx)}
                     >
                         <Image 
                             src={img} 
                             alt={`Gallery image ${idx + 1}`} 
                             fill 
-                            className="object-contain p-2 group-hover:scale-105 transition duration-500" 
+                            className="object-cover group-hover:scale-105 transition duration-500" 
                             placeholder="blur" 
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-300 flex items-center justify-center">
