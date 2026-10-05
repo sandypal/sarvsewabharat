@@ -1,15 +1,23 @@
-import marathon from "@/public/sindhu.jpg";
-import cricket from "@/public/sindoor.jpg";
-import sansad from "@/public/sansad.jpg";
 import blood from "@/public/blood.jpg";
-import trees from "@/public/trees.jpg";
-import shiksha from "@/public/shiksha.png";
-import shakti from "@/public/shakti.png";
+import intership from "@/public/intership.jpg";
+import karanBatti from "@/public/karan-batti.jpg";
+import karanSama from "@/public/karan-sama.jpg";
 import lifeSaversLogo from "@/public/life-savers-logo.jpg";
+import run4_1 from "@/public/run4_1.jpg";
+import run4_2 from "@/public/run4_2.png";
+import run4_3 from "@/public/run4_3.png";
+import run4_4 from "@/public/run4_4.png";
+import sansad from "@/public/sansad.jpg";
+import shakti from "@/public/shakti.png";
 import shikshaGal1 from "@/public/shiksha-gal-1.jpg";
 import shikshaGal2 from "@/public/shiksha-gal-2.jpg";
 import shikshaGal3 from "@/public/shiksha-gal-3.jpg";
 import shikshaGal4 from "@/public/shiksha-gal-4.jpg";
+import shiksha from "@/public/shiksha.png";
+import marathon from "@/public/sindhu.jpg";
+import cricket from "@/public/sindoor.jpg";
+import trees from "@/public/trees.jpg";
+
 import { StaticImageData } from "next/image";
 
 export type EventDetails = {
@@ -27,7 +35,7 @@ export type EventDetails = {
   gallery?: StaticImageData[];
   pressReleases?: { title: string; date: string; url: string }[];
   logo?: any;
-  coordinators?: { role: string; name: string; phone: string }[];
+  coordinators?: { role: string; name: string; phone: string; photo?: StaticImageData; description?: string }[];
 };
 
 export const eventsData: Record<string, EventDetails> = {
@@ -41,20 +49,20 @@ export const eventsData: Record<string, EventDetails> = {
     img: cricket,
     description: [
       "Operation Sindoor 2.0 is back! Bigger and better. We are bringing the community together once again for an unforgettable cricket tournament.",
-      "Join us this October for a month of sportsmanship, thrilling matches, and neighbourhood pride."
+      "Join us this October for a month of sportsmanship, thrilling matches, and neighbourhood pride.",
     ],
     highlights: [
       "32 teams from across the state",
       "Live broadcast of all matches",
       "Celebrity guest appearances",
-      "Enhanced prize pool and MVP awards"
+      "Enhanced prize pool and MVP awards",
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
     gallery: [cricket, marathon],
     pressReleases: [
-      { title: "Operation Sindoor 2.0 Announced", date: "Sep 2026", url: "#" }
-    ]
+      { title: "Operation Sindoor 2.0 Announced", date: "Sep 2026", url: "#" },
+    ],
   },
 
   "operation-sindoor": {
@@ -79,8 +87,8 @@ export const eventsData: Record<string, EventDetails> = {
     contactPhone: "+91-90563-33759",
     gallery: [cricket, marathon, sansad],
     pressReleases: [
-      { title: "Operation Sindoor 1.0 Concludes", date: "Nov 2025", url: "#" }
-    ]
+      { title: "Operation Sindoor 1.0 Concludes", date: "Nov 2025", url: "#" },
+    ],
   },
   "run-for-sindhu-1": {
     slug: "run-for-sindhu-1",
@@ -104,8 +112,12 @@ export const eventsData: Record<string, EventDetails> = {
     contactPhone: "+91-90563-33759",
     gallery: [marathon, blood, trees],
     pressReleases: [
-      { title: "Run For Sindhu Marathon 1.0 Highlights", date: "Dec 2023", url: "#" }
-    ]
+      {
+        title: "Run For Sindhu Marathon 1.0 Highlights",
+        date: "Dec 2023",
+        url: "#",
+      },
+    ],
   },
   "run-for-sindhu-2": {
     slug: "run-for-sindhu-2",
@@ -129,8 +141,12 @@ export const eventsData: Record<string, EventDetails> = {
     contactPhone: "+91-90563-33759",
     gallery: [marathon, blood, trees],
     pressReleases: [
-      { title: "Run For Sindhu Marathon 2.0 Highlights", date: "Dec 2024", url: "#" }
-    ]
+      {
+        title: "Run For Sindhu Marathon 2.0 Highlights",
+        date: "Dec 2024",
+        url: "#",
+      },
+    ],
   },
   "run-for-sindhu-3": {
     slug: "run-for-sindhu-3",
@@ -154,8 +170,12 @@ export const eventsData: Record<string, EventDetails> = {
     contactPhone: "+91-90563-33759",
     gallery: [marathon, blood, trees],
     pressReleases: [
-      { title: "Run For Sindhu Marathon 3.0 Highlights", date: "Dec 2025", url: "#" }
-    ]
+      {
+        title: "Run For Sindhu Marathon 3.0 Highlights",
+        date: "Dec 2025",
+        url: "#",
+      },
+    ],
   },
   "run-for-sindhu-4": {
     slug: "run-for-sindhu-4",
@@ -177,10 +197,14 @@ export const eventsData: Record<string, EventDetails> = {
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
-    gallery: [marathon, blood, trees],
+    gallery: [run4_1, run4_2, run4_3, run4_4],
     pressReleases: [
-      { title: "Run For Sindhu Marathon 4.0 Highlights", date: "Dec 2026", url: "#" }
-    ]
+      {
+        title: "Run For Sindhu Marathon 4.0 Highlights",
+        date: "Dec 2026",
+        url: "#",
+      },
+    ],
   },
   "sansad-darshan-yatra": {
     slug: "sansad-darshan-yatra",
@@ -193,13 +217,13 @@ export const eventsData: Record<string, EventDetails> = {
     gallery: [sansad, shiksha],
     description: [
       "Sansad Darshan Yatra is an educational excursion taking youth and community members to witness the vibrant democratic process at the Parliament of India.",
-      "This initiative aims to inspire the next generation of leaders by giving them firsthand exposure to the nation's legislative heart."
+      "This initiative aims to inspire the next generation of leaders by giving them firsthand exposure to the nation's legislative heart.",
     ],
     highlights: [
       "Guided tour of the Parliament building",
       "Interactive sessions with policymakers and leaders",
       "Educational workshops on the Indian Constitution",
-      "Travel and accommodation provided for rural youth"
+      "Travel and accommodation provided for rural youth",
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
@@ -225,7 +249,7 @@ export const eventsData: Record<string, EventDetails> = {
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
-  }
+  },
 };
 
 export const initiativesData: Record<string, EventDetails> = {
@@ -233,7 +257,8 @@ export const initiativesData: Record<string, EventDetails> = {
     slug: "shiksha-sankalp",
     title: "Shiksha Sankalp: One Lakh Students, One Lakh Smiles",
     tag: "National Education Initiative",
-    tagline: "A focused education movement helping deserving students continue learning with dignity, confidence, and opportunity.",
+    tagline:
+      "A focused education movement helping deserving students continue learning with dignity, confidence, and opportunity.",
     date: "Ongoing",
     location: "Pan-India (28 States, 8 UTs)",
     img: shiksha,
@@ -241,7 +266,7 @@ export const initiativesData: Record<string, EventDetails> = {
       "Shiksha Sankalp is the core education initiative of Sarv Sewa Sashktikarn Sangthan. We support deserving students through higher education fee assistance, scholarships, study material, books, stationery, mentorship, and academic support.",
       "Education with purpose. Impact with dignity. We are committed to ensuring that every deserving child gets access to quality education without financial barriers.",
       "Our Promise: Nurture dreams. Build confidence. Create pathways to opportunity. Every deserving student should be able to keep learning in a national mission rooted in access, inclusion, and social mobility.",
-      "We also invite Youth Leaders to become State Education Ambassadors, and corporate partners to join hands for measurable CSR education impact."
+      "We also invite Youth Leaders to become State Education Ambassadors, and corporate partners to join hands for measurable CSR education impact.",
     ],
     highlights: [
       "Higher Education & Scholarships",
@@ -249,15 +274,29 @@ export const initiativesData: Record<string, EventDetails> = {
       "Career Guidance & Mentorship",
       "Personality Growth & Life Skills",
       "Rural Empowerment & Peer Support",
-      "Fully Compliant: 12A, 80G, CSR-1, NGO Darpan"
+      "Fully Compliant: 12A, 80G, CSR-1, NGO Darpan",
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-98551-09159",
     coordinators: [
-      { role: "CONVENOR", name: "KARAN SAMA", phone: "+91 98551 09159" },
-      { role: "CO-CONVENOR", name: "KARAN BATTI", phone: "+91 95927 43434" }
+      {
+        role: "CONVENOR",
+        name: "KARAN SAMA",
+        phone: "+91 98551 09159",
+        photo: karanSama,
+        description:
+          "A dedicated leader guiding the vision of Shiksha Sankalp and working towards creating meaningful educational opportunities for students. His leadership helps drive the campaign forward with commitment, purpose, and a strong focus on empowering young learners.",
+      },
+      {
+        role: "CO-CONVENOR",
+        name: "KARAN BATTI",
+        phone: "+91 95927 43434",
+        photo: karanBatti,
+        description:
+          "A committed leader who works alongside the Convenor to transform the vision of Shiksha Sankalp into meaningful action. Through strategic coordination, collaboration, and dedicated execution, he plays a vital role in expanding educational opportunities and creating lasting impact.",
+      },
     ],
-    gallery: [shikshaGal1, shikshaGal2, shikshaGal3, shikshaGal4]
+    gallery: [shikshaGal1, shikshaGal2, shikshaGal3, shikshaGal4],
   },
   "shakti-sankalp": {
     slug: "shakti-sankalp",
@@ -293,20 +332,24 @@ export const initiativesData: Record<string, EventDetails> = {
       "Sarv Sewa Life Savers is an initiative by Sarv Sewa Sashktikarn Sangthan, dedicated to connecting voluntary blood donors with patients who require blood in critical and urgent situations.",
       "Our aim is to ensure that the right donor reaches the right patient at the right time, helping save lives and strengthening the spirit of voluntary blood donation.",
       "Our Mission: Donate Blood • Save Lives • Serve Humanity",
-      "We believe that a single blood donation can become a lifeline for someone in need. Through this initiative, we work towards building a responsive network of voluntary donors and making timely blood support accessible to patients and their families."
+      "We believe that a single blood donation can become a lifeline for someone in need. Through this initiative, we work towards building a responsive network of voluntary donors and making timely blood support accessible to patients and their families.",
     ],
     highlights: [
       "24/7 Voluntary Blood Donation Support",
       "Network of Verified Donors",
-      "Emergency Medical Assistance"
+      "Emergency Medical Assistance",
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-98551-99173",
     coordinators: [
-      { role: "COORDINATOR", name: "JAGCHANAN SINGH", phone: "+91 98551 99173" },
+      {
+        role: "COORDINATOR",
+        name: "JAGCHANAN SINGH",
+        phone: "+91 98551 99173",
+      },
       { role: "CO-COORDINATOR", name: "PREET HANDA", phone: "+91 95012 38216" },
-      { role: "CO-COORDINATOR", name: "KOHINOOR", phone: "+91 98159 77922" }
-    ]
+      { role: "CO-COORDINATOR", name: "KOHINOOR", phone: "+91 98159 77922" },
+    ],
   },
   "social-work-internship": {
     slug: "social-work-internship",
@@ -315,23 +358,23 @@ export const initiativesData: Record<string, EventDetails> = {
     tagline: "Learn • Serve • Lead",
     date: "Ongoing",
     location: "Various Locations",
-    img: sansad,
+    img: intership,
     description: [
       "Empowering students with practical training, field exposure, and meaningful opportunities to contribute to society.",
       "Through our Social Work Internship Program, students are encouraged to develop leadership, teamwork, social responsibility, and a strong sense of patriotism while actively participating in community-focused initiatives.",
-      "From Learning to Nation Building: Students get opportunities to participate in large-scale social and nation-building programs, including initiatives conducted in collaboration with government institutions and various organizations."
+      "From Learning to Nation Building: Students get opportunities to participate in large-scale social and nation-building programs, including initiatives conducted in collaboration with government institutions and various organizations.",
     ],
     highlights: [
       "Practical Field Exposure",
       "Community Building",
-      "Leadership Development"
+      "Leadership Development",
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-95927-43434",
     coordinators: [
-      { role: "COORDINATOR", name: "KARAN BHATTI", phone: "+91 95927 43434" }
-    ]
-  }
+      { role: "COORDINATOR", name: "KARAN BHATTI", phone: "+91 95927 43434" },
+    ],
+  },
 };
 
 export const eventsList = Object.values(eventsData);

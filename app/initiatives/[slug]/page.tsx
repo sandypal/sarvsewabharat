@@ -4,6 +4,7 @@ import Image from "next/image";
 import { initiativesData, initiativesList } from "@/lib/events-data";
 import BankInfoCard from "@/components/BankInfoCard";
 import GalleryLightbox from "@/components/GalleryLightbox";
+import { Award } from "lucide-react";
 
 export async function generateStaticParams() {
   return initiativesList.map((event) => ({
@@ -129,18 +130,53 @@ export default async function InitiativePage({
               <GalleryLightbox images={event.gallery} />
             )}
 
-            <div className="mt-12 rounded-3xl bg-accent text-accent-foreground p-8 lg:p-12 text-center shadow-elegant relative overflow-hidden">
-              <div className="absolute -top-12 -right-12 h-40 w-40 bg-white/10 rounded-full blur-3xl" />
-              <div className="absolute -bottom-12 -left-12 h-40 w-40 bg-white/10 rounded-full blur-3xl" />
-              <h3 className="font-display font-bold text-3xl mb-4 relative z-10">Support this cause</h3>
-              <p className="text-lg text-accent-foreground/90 mb-8 relative z-10 max-w-xl mx-auto">Your contribution helps us expand our reach and impact more lives across the nation.</p>
-              <Link
-                href={`/donate?cause=${event.slug}`}
-                className="inline-flex items-center justify-center rounded-full bg-background text-foreground px-8 py-4 font-bold text-lg hover:scale-105 transition-transform duration-300 relative z-10 shadow-lg"
-              >
-                Donate Now
-              </Link>
-            </div>
+            {event.coordinators && event.coordinators.length > 0 && (
+              <div className="mt-16 bg-muted/20 rounded-[2rem] p-8 lg:p-10 border border-border">
+                <h3 className="font-display text-2xl font-bold text-foreground mb-8 flex items-center gap-3">
+                  <span className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <Award className="h-5 w-5" />
+                  </span>
+                  Campaign Leadership
+                </h3>
+
+                <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 relative z-10">
+                  {event.coordinators.map((c: any, i: number) => (
+                    <div key={i} className="bg-white p-3 rounded-2xl shadow-sm border border-border/40 flex flex-col items-center text-left">
+                      {c.photo ? (
+                        <div className="w-full aspect-[4/4] rounded-[1rem] overflow-hidden relative mb-4">
+                          <Image src={c.photo} alt={c.name} fill className="object-cover object-top" />
+                        </div>
+                      ) : (
+                        <div className="w-full aspect-[4/4] bg-muted rounded-[1rem] mb-4" />
+                      )}
+                      
+                      <div className="w-full px-3 text-left flex flex-col items-start -mt-8 relative z-10 mb-4">
+                        <div className="bg-[#265B27] text-white px-4 py-1 text-[10px] font-bold uppercase tracking-wider shadow-md rounded-full inline-block">
+                          {c.role}
+                        </div>
+                      </div>
+                      
+                      <div className="px-4 pb-4 w-full">
+                        <div className="font-display text-[22px] font-bold uppercase text-foreground mb-0.5 tracking-tight">{c.name}</div>
+                        <div className="text-[13px] font-bold text-[#358B35] mb-5">{c.phone}</div>
+                        
+                        <div className="w-full h-px bg-border/60 mb-4" />
+                        
+                        {c.description ? (
+                          <p className="text-[12px] text-foreground/80 leading-relaxed font-medium">
+                            {c.description}
+                          </p>
+                        ) : (
+                          <p className="text-[12px] text-foreground/80 leading-relaxed font-medium">
+                            A dedicated leader working to transform the vision of the organization into meaningful action.
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* SIDEBAR */}
@@ -169,27 +205,18 @@ export default async function InitiativePage({
               </div>
             </div>
 
-            {event.coordinators && event.coordinators.length > 0 && (
-              <div className="rounded-3xl bg-card border border-border shadow-elegant overflow-hidden">
-                <div className="bg-muted/50 p-6 border-b border-border">
-                  <h3 className="font-bold text-foreground flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
-                    Campaign Leadership
-                  </h3>
-                </div>
-                <div className="p-6 space-y-6">
-                  {event.coordinators.map((c: any, i: number) => (
-                    <div key={i} className="border-l-2 border-primary/20 pl-4">
-                      <div className="inline-flex rounded-full bg-primary text-primary-foreground px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider mb-2">
-                        {c.role}
-                      </div>
-                      <div className="font-display text-xl font-bold uppercase text-foreground tracking-tight">{c.name}</div>
-                      <div className="text-sm font-bold text-green-600 mt-1">{c.phone}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            <div className="rounded-3xl bg-accent text-accent-foreground p-8 text-center shadow-elegant relative overflow-hidden">
+              <div className="absolute -top-12 -right-12 h-32 w-32 bg-white/10 rounded-full blur-3xl" />
+              <div className="absolute -bottom-12 -left-12 h-32 w-32 bg-white/10 rounded-full blur-3xl" />
+              <h3 className="font-display font-bold text-2xl mb-3 relative z-10">Support this cause</h3>
+              <p className="text-sm text-accent-foreground/90 mb-6 relative z-10">Your contribution helps us expand our reach and impact more lives across the nation.</p>
+              <Link
+                href={`/donate?cause=${event.slug}`}
+                className="inline-flex items-center justify-center w-full rounded-full bg-background text-foreground px-6 py-3 font-bold text-sm hover:scale-105 transition-transform duration-300 relative z-10 shadow-lg"
+              >
+                Donate Now
+              </Link>
+            </div>
 
             <BankInfoCard />
           </aside>

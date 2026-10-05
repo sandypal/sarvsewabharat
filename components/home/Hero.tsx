@@ -1,39 +1,99 @@
-import logo from '@/public/logo.png';
+"use client";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const slides = [
+  {
+    id: 1,
+    image: "/slide_01.webp",
+    alt: "Run for Sindhu Marathon 4.0 with community runners",
+  },
+  {
+    id: 2,
+    image: "/slide_02.webp",
+    alt: "Global Youth Meet bringing young people together",
+  },
+  {
+    id: 3,
+    image: "/slide_03.webp",
+    alt: "Sansad Darshan Yatra and the Parliament of India",
+  },
+];
 
 const Hero = () => {
-    return (
-        <section className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-hero opacity-[0.97]" />
-            <div className="absolute inset-0 [background:radial-gradient(circle_at_20%_30%,oklch(0.82_0.16_95/0.35),transparent_55%),radial-gradient(circle_at_80%_70%,oklch(0.7_0.18_50/0.3),transparent_50%)]" />
-            <div className="relative mx-auto max-w-7xl px-6 py-24 lg:py-36 grid lg:grid-cols-[1.2fr_1fr] gap-14 items-center">
-                <div className="text-primary-foreground">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] ring-1 ring-white/25">
-                        <span className="h-1.5 w-1.5 rounded-full bg-secondary" /> Ek Kadam Manavta Ki Or
-                    </span>
-                    <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02]">
-                        Service is the seed.<br />
-                        <span className="text-secondary">Society is the shade.</span>
-                    </h1>
-                    <p className="mt-6 max-w-xl text-lg text-white/85 leading-relaxed">
-                        We are a volunteer-led movement organising marathons, cricket tournaments, blood donation camps and tree plantation drives — turning everyday people into a force for change.
-                    </p>
-                    <div className="mt-9 flex flex-wrap gap-4">
-                        <a href="#events" className="inline-flex items-center rounded-full bg-secondary text-secondary-foreground px-7 py-3.5 font-semibold hover:translate-y-[-2px] transition shadow-glow">
-                            Explore Our Events
-                        </a>
-                        <a href="#join" className="inline-flex items-center rounded-full bg-white/10 text-white ring-1 ring-white/30 px-7 py-3.5 font-semibold hover:bg-white/20 transition">
-                            Become a Volunteer
-                        </a>
-                    </div>
-                </div>
-                <div className="relative flex items-center justify-center">
-                    <div className="absolute inset-0 bg-secondary/30 blur-3xl rounded-full" />
-                    <img src={logo.src} alt="" width={520} height={520} className="relative w-[78%] max-w-[460px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]" />
-                </div>
-            </div>
-            <div className="relative h-16 bg-gradient-to-b from-transparent to-background" />
-        </section>
-    );
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-advance slider
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000); // Change slide every 6 seconds
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
+  return (
+    <section className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-black">
+      {/* Background Images */}
+      {slides.map((slide, index) => (
+        <div
+          key={slide.id}
+          aria-hidden={index !== currentSlide}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
+        >
+          <Image
+            src={slide.image}
+            alt={slide.alt}
+            fill
+            className="object-cover object-center"
+            priority={index === 0}
+          />
+          <Link
+            href="/donate"
+            tabIndex={index === currentSlide ? 0 : -1}
+            className="absolute bottom-10 left-1/2 z-20 inline-flex -translate-x-1/2 items-center rounded-full bg-secondary px-8 py-4 text-base font-bold text-secondary-foreground shadow-glow transition hover:scale-105"
+          >
+            Donate Now
+          </Link>
+        </div>
+      ))}
+
+      {/* Navigation Controls */}
+      <div className="absolute bottom-10 right-6 lg:right-10 flex items-center gap-4 z-20">
+        <div className="flex gap-2 mr-6 hidden sm:flex">
+          {slides.map((_, idx) => (
+            <button
+              key={`dot-${idx}`}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-2 rounded-full transition-all duration-300 ${idx === currentSlide ? "w-8 bg-secondary" : "w-2 bg-white/40 hover:bg-white/70"}`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={prevSlide}
+          className="p-3 lg:p-4 rounded-full bg-black/40 text-white backdrop-blur border border-white/20 hover:bg-white/20 hover:scale-110 transition"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="p-3 lg:p-4 rounded-full bg-black/40 text-white backdrop-blur border border-white/20 hover:bg-white/20 hover:scale-110 transition"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

@@ -32,12 +32,17 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2014", title: "The First Step", desc: "A circle of college friends in Delhi decides to organise a small blood donation camp. 47 donors show up. The seed is planted." },
-  { year: "2016", title: "Run for Sindhu", desc: "Inspired by a young girl's fight for education, the first marathon is organised. 300 runners raise enough to sponsor a full year of school for 120 children." },
-  { year: "2018", title: "District Expansion", desc: "The Sangthan grows beyond the capital, setting up volunteer chapters in 6 neighbouring districts." },
-  { year: "2020", title: "Pandemic Response", desc: "When COVID-19 hits, volunteers pivot to distribute ration kits, run plasma donation drives and set up oxygen langars." },
-  { year: "2023", title: "1 Lakh Trees", desc: "Vriksh Bandhan crosses the milestone of 1,00,000 saplings planted across schools, panchayats and highways." },
-  { year: "2024", title: "A Decade of Service", desc: "10 years, 240+ events, 3,000+ volunteers and over 1,20,000 lives touched. The journey continues." },
+  { year: "2026", title: "Community Impact", desc: "Run for Sindhu 4.0, Operation Sindoor 2.0 & Global Youth Meet." },
+  { year: "2025", title: "Sports & Fitness", desc: "Run for Sindhu 3.0 and Operation Sindoor 1.0." },
+  { year: "2024", title: "Run for Sindhu 2.0", desc: "Second edition of the Run for Sindhu marathon." },
+  { year: "2023", title: "Run for Sindhu 1.0", desc: "Inaugural edition of the Run for Sindhu marathon." },
+  { year: "2022", title: "Continued Service", desc: "Continued community support and organizing events." },
+  { year: "2021", title: "Vaccination Drive", desc: "Covid-19 Vaccination camp 22,000 vaccination done." },
+  { year: "2020", title: "Covid-19 Relief", desc: "Covid-19 Vaccination camp 22,000 vaccination done & Bhojan vitran." },
+  { year: "2019", title: "National Events", desc: "Independent and Republic Day event." },
+  { year: "2018", title: "National Events", desc: "Independent and Republic Day event." },
+  { year: "2017", title: "1 Door Sahido Ke Naam", desc: "1 door sahido ke naam and Independent and Republic Day event." },
+  { year: "2016", title: "National Events", desc: "Independent and Republic Day event." },
 ];
 
 export default function AboutPage() {
