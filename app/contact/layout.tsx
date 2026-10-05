@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Sarv Sewa Sashktikarn Sangthan. Call us at +91-90563-33759 or email info@sarvsewabharat.org. Located at AT- 708, Street No 18, Ambedkar Nagar, Giaspura, Ludhiana - 141016, Punjab, India.",
+    "Get in touch with Sarv Sewa Sashktikarn Sangthan. Call us at +91-90563-33759 or email info@sarvsewabharat.org. Located at House No- 708, Street No 18, Ambedkar Nagar, Giaspura, Ludhiana - 141016, Punjab, India.",
   keywords: [
     "Contact SSSS",
     "NGO India Contact",

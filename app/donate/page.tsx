@@ -21,7 +21,7 @@ const causes = [
     { value: "run-for-sindhu", label: "Run For Sindhu Marathon" },
     { value: "operation-sindoor", label: "Operation Sindoor Cricket Cup" },
     { value: "shiksha-sankalp", label: "Shiksha Sankalp (One Lac Students One Lac Smiles)" },
-    { value: "ssss-blood-donation", label: "SSSS Blood Donation Movement" },
+    { value: "ssss-blood-donation", label: "Sarv Sewa Life Savers" },
     { value: "shakti-sankalp", label: "Shakti Sankalp (Women Empowerment & Skill Develoment)" },
     { value: "sansad-darshan-yatra", label: "Sansad Darshan Yatra" },
 ];
@@ -380,7 +380,7 @@ function DonateFormContent() {
                                         <div className="text-[10px] uppercase tracking-[0.1em] text-primary-foreground/70 font-semibold mb-1">Account Name</div>
                                         <div className="font-bold text-sm tracking-wide">SARV SEWA SASHKTIKARN SANGTHAN</div>
                                     </div>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div className="flex flex-col gap-4">
                                         <div>
                                             <div className="text-[10px] uppercase tracking-[0.1em] text-primary-foreground/70 font-semibold mb-1">Account Number</div>
                                             <div className="font-mono text-sm font-bold tracking-widest bg-black/10 px-2 py-1 rounded inline-block">1821239219918931</div>

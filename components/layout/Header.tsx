@@ -14,6 +14,7 @@ const Header = ({ title }: HeaderProps) => {
     const navLinks = [
         { name: "Home", href: "/" },
         { name: "About", href: "/about" },
+        { name: "Founder's Message", href: "/founders-message" },
         { name: "Initiatives", href: "/initiatives" },
         { name: "Events", href: "/events" },
         { name: "Gallery", href: "/gallery" },
