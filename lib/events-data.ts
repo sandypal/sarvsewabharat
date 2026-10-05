@@ -35,7 +35,7 @@ export type EventDetails = {
   gallery?: StaticImageData[];
   pressReleases?: { title: string; date: string; url: string }[];
   logo?: any;
-  coordinators?: { role: string; name: string; phone: string }[];
+  coordinators?: { role: string; name: string; phone: string; photo?: StaticImageData; description?: string }[];
 };
 
 export const eventsData: Record<string, EventDetails> = {
