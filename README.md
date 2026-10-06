@@ -1,3 +1,7 @@
+# Sarv Sewa Sashktikarn Sangthan
+
+Website: [https://sarvsewabharat.org/](https://sarvsewabharat.org/)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
