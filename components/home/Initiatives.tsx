@@ -15,7 +15,7 @@ const initiatives = initiativesList.map((e) => ({
 const Initiatives = () => {
     return (
 
-        <section id="initiatives" className="mx-auto max-w-7xl px-6 py-24 lg:py-32 bg-secondary/5 rounded-3xl mb-24" >
+        <section id="initiatives" className="mx-auto max-w-7xl px-6 pt-12 pb-16 lg:pt-16 lg:pb-24 bg-secondary/5 rounded-3xl mb-16" >
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
                 <div>
                     <div className="text-xs uppercase tracking-[0.22em] text-accent font-semibold">Our Programs</div>
