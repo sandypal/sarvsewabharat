@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Join = () => {
     return (
-        <section id="join" className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
+        <section id="join" className="mx-auto max-w-7xl px-6 py-16 lg:py-24">
             <div className="rounded-[2rem] bg-card border border-border shadow-elegant p-10 lg:p-16 text-center relative overflow-hidden">
                 <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-secondary/40 blur-3xl" />
                 <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />

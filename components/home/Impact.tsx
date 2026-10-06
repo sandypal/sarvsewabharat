@@ -7,7 +7,7 @@ const impact = [
 
 const Impact = () => {
   return (
-    <section id="impact" className="mx-auto max-w-7xl px-6 mt-2 mb-5">
+    <section id="impact" className="mx-auto max-w-7xl px-6 pt-12 pb-8">
       <div className="grid grid-cols-2 lg:grid-cols-4 rounded-3xl bg-card shadow-elegant border border-border overflow-hidden">
         {impact.map((s: any, i: any) => (
           <div

@@ -17,7 +17,7 @@ const events = eventsList
 const Events = () => {
     return (
 
-        <section id="events" className="mx-auto max-w-7xl px-6 py-24 lg:py-32" >
+        <section id="events" className="mx-auto max-w-7xl px-6 pt-8 pb-8 lg:pb-12" >
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
                 <div>
                     <div className="text-xs uppercase tracking-[0.22em] text-accent font-semibold">What We Do</div>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Learn about Sarv Sewa Sashktikarn Sangthan — our story, mission, values and the volunteers powering a decade of community service across India.",
   openGraph: {
     title: "About Us | Sarv Sewa Sashktikarn Sangthan",
-    description: "A decade of service. 3,000+ volunteers. One mission — a stronger, kinder, greener Bharat.",
+    description: "A decade of service. 12,426 volunteers. One mission — a stronger, kinder, greener Bharat.",
   },
 };
 
@@ -38,11 +38,11 @@ const timeline = [
   { year: "2023", title: "Run for Sindhu 1.0", desc: "Inaugural edition of the Run for Sindhu marathon." },
   { year: "2022", title: "Continued Service", desc: "Continued community support and organizing events." },
   { year: "2021", title: "Vaccination Drive", desc: "Covid-19 Vaccination camp 22,000 vaccination done." },
-  { year: "2020", title: "Covid-19 Relief", desc: "Covid-19 Vaccination camp 22,000 vaccination done & Bhojan vitran." },
-  { year: "2019", title: "National Events", desc: "Independent and Republic Day event." },
-  { year: "2018", title: "National Events", desc: "Independent and Republic Day event." },
-  { year: "2017", title: "1 Door Sahido Ke Naam", desc: "1 door sahido ke naam and Independent and Republic Day event." },
-  { year: "2016", title: "National Events", desc: "Independent and Republic Day event." },
+  { year: "2020", title: "Covid-19 Relief", desc: "Covid-19 Vaccination camp 22,000 vaccination done & भोजन वितरण (Food Distribution)." },
+  { year: "2019", title: "National Events", desc: "Independence and Republic Day events." },
+  { year: "2018", title: "National Events", desc: "Independence and Republic Day events." },
+  { year: "2017", title: "एक दौड़ शहीदों के नाम", desc: "एक दौड़ शहीदों के नाम (A Run for Martyrs) and Independence and Republic Day events." },
+  { year: "2016", title: "National Events", desc: "Independence and Republic Day events." },
 ];
 
 export default function AboutPage() {
@@ -60,7 +60,7 @@ export default function AboutPage() {
             A decade of taking one step forward — <span className="text-secondary">together.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/85 leading-relaxed">
-            Born from a small circle of friends in 2014, Sarv Sewa Sashktikarn Sangthan has grown into a network of 3,000+ volunteers across 12 districts. We believe sport, service and sustainability are the three roots of a confident society.
+            Born from a small circle of friends, Sarv Sewa Sashktikarn Sangthan has grown into a network of 12,426 volunteers across 341 districts. We believe sport, service and sustainability are the three roots of a confident society.
           </p>
         </div>
         <div className="relative h-16 bg-gradient-to-b from-transparent to-background" />
@@ -79,8 +79,8 @@ export default function AboutPage() {
               className="rounded-3xl shadow-elegant ring-1 ring-border"
             />
             <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-2xl p-6 shadow-elegant hidden lg:block max-w-[16rem]">
-              <div className="font-display text-3xl font-bold text-primary">10+</div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Years of Service</div>
+              <div className="font-display text-3xl font-bold text-primary">134+</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Events completed till now</div>
             </div>
           </div>
           <div>
@@ -97,6 +97,19 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* VIDEO SECTION */}
+      <section className="mx-auto max-w-7xl px-6 pb-24 lg:pb-32">
+        <div className="relative aspect-video rounded-3xl overflow-hidden shadow-elegant border border-border pointer-events-none">
+          <iframe
+            src="https://www.youtube.com/embed/kJ2vDGu_nh8?autoplay=1&mute=1&loop=1&playlist=kJ2vDGu_nh8&controls=0&modestbranding=1&rel=0&showinfo=0"
+            title="Sarv Sewa Sashktikarn Sangthan"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full scale-[1.05]"
+          />
         </div>
       </section>
 
@@ -154,10 +167,10 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 pb-24 lg:pb-32">
         <div className="grid grid-cols-2 lg:grid-cols-4 rounded-3xl bg-card shadow-elegant border border-border overflow-hidden">
           {[
-            { n: "1,20,000+", l: "Lives Touched" },
-            { n: "1 Lakh", l: "Trees Planted" },
-            { n: "12,000+", l: "Blood Units Collected" },
-            { n: "240+", l: "Events Hosted" },
+            { n: "12,426", l: "Volunteers across India" },
+            { n: "341", l: "Districts Covered" },
+            { n: "4.7M", l: "Lives touched" },
+            { n: "134+", l: "Events completed till now" },
           ].map((s, i) => (
             <div
               key={s.l}

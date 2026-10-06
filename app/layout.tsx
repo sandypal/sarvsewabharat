@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { DisableCopyRightClick } from "@/components/DisableCopyRightClick";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,6 +83,7 @@ export default function RootLayout({
         <Header title="Sarv Sewa Sashktikarn Sangthan" />
         {children}
         <Footer />
+        <DisableCopyRightClick />
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-NC52FS996Y"
