@@ -2,6 +2,11 @@
   "name": "sarvsewabharat",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sarvsewabharat.org/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandypal/sarvsewabharat.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
