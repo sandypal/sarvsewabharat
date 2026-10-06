@@ -154,6 +154,18 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px; /* Scales down all rem-based typography, margins, and paddings for mobile */
+    }
+  }
+
+  @media (max-width: 480px) {
+    html {
+      font-size: 13px; /* Scales down further for very small screens */
+    }
+  }
+
   h1,
   h2,
   h3,
