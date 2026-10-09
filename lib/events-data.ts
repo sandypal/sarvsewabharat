@@ -1,7 +1,10 @@
 import blood from "@/public/blood.jpg";
+import gaurav from "@/public/GAURAV.png";
 import intership from "@/public/intership.jpg";
+import jagchananSingh from "@/public/JAGCHANANSINGH.jpeg";
 import karanBatti from "@/public/karan-batti.jpg";
 import karanSama from "@/public/karan-sama.jpg";
+import kohinoor from "@/public/KOHINOOR.jpeg";
 import lifeSaversLogo from "@/public/life-savers-logo.jpg";
 import run4_1 from "@/public/run4_1.jpg";
 import run4_2 from "@/public/run4_2.png";
@@ -228,28 +231,7 @@ export const eventsData: Record<string, EventDetails> = {
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
   },
-  "ssss-blood-donation": {
-    slug: "ssss-blood-donation",
-    title: "SSSS Blood Donation Movement",
-    tag: "Blood Camp",
-    tagline: "Voluntary Blood Donation Drive",
-    date: "2023",
-    location: "Chandigarh",
-    img: blood,
-    gallery: [blood, shakti],
-    description: [
-      "Our Blood Donation Movement is a voluntary drive run in partnership with regional hospitals and accredited blood banks. Donors are screened by licensed medical staff.",
-      "Collected units are used in trauma care, thalassemia treatment and emergency surgeries to save lives when it matters most.",
-    ],
-    highlights: [
-      "Donors must be 18–65 years, weigh 50+ kg",
-      "On-site doctor consultation and hemoglobin test",
-      "Donor card valid for priority blood access for a year",
-      "Refreshments and post-donation rest area provided",
-    ],
-    contactEmail: "info@sarvsewabharat.org",
-    contactPhone: "+91-90563-33759",
-  },
+
 };
 
 export const initiativesData: Record<string, EventDetails> = {
@@ -346,9 +328,10 @@ export const initiativesData: Record<string, EventDetails> = {
         role: "COORDINATOR",
         name: "JAGCHANAN SINGH",
         phone: "+91 98551 99173",
+        photo: jagchananSingh,
       },
+      { role: "CO-COORDINATOR", name: "KOHINOOR", phone: "+91 98159 77922", photo: kohinoor },
       { role: "CO-COORDINATOR", name: "PREET HANDA", phone: "+91 95012 38216" },
-      { role: "CO-COORDINATOR", name: "KOHINOOR", phone: "+91 98159 77922" },
     ],
   },
   "social-work-internship": {
@@ -372,7 +355,8 @@ export const initiativesData: Record<string, EventDetails> = {
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-95927-43434",
     coordinators: [
-      { role: "COORDINATOR", name: "KARAN BHATTI", phone: "+91 95927 43434" },
+      { role: "COORDINATOR", name: "KARAN BHATTI", phone: "+91 95927 43434", photo: karanBatti },
+      { role: "CO-COORDINATOR", name: "GOURAV CHOUDHARY", phone: "", photo: gaurav },
     ],
   },
 };
