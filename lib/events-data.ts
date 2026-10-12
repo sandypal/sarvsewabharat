@@ -1,7 +1,15 @@
+import aarti from "@/public/aarti.webp";
+import binakshiMahi from "@/public/Binakshi-Mahi.webp";
 import blood from "@/public/blood.jpg";
+import dimanshuRana from "@/public/Dimanshu-rana.webp";
 import gaurav from "@/public/GAURAV.png";
+import gurwinderSingh from "@/public/Gurwinder-singh.webp";
+import harmanKamboj from "@/public/Harman-kamboj.webp";
+import harshkamalKansal from "@/public/Harshkamal-kansal.webp";
 import intership from "@/public/intership.jpg";
 import jagchananSingh from "@/public/JAGCHANANSINGH.jpeg";
+import jobanSohi from "@/public/joban-sohi.webp";
+import jujharSingh from "@/public/Jujhar-singh.webp";
 import karanBatti from "@/public/karan-batti.jpg";
 import karanSama from "@/public/karan-sama.jpg";
 import kohinoor from "@/public/KOHINOOR.jpeg";
@@ -284,7 +292,7 @@ export const initiativesData: Record<string, EventDetails> = {
     slug: "shakti-sankalp",
     title: "Shakti Sankalp (Women Empowerment & Skill Develoment)",
     tag: "Empowerment",
-    tagline: "Fostering Independence and Skill",
+    tagline: "Empowering Women. Enabling Change. Inspiring Futures.",
     date: "Ongoing",
     location: "Various Locations",
     img: shakti,
@@ -300,6 +308,24 @@ export const initiativesData: Record<string, EventDetails> = {
     ],
     contactEmail: "info@sarvsewabharat.org",
     contactPhone: "+91-90563-33759",
+    coordinators: [
+      {
+        role: "CONVENOR",
+        name: "MS. AARTI ICHHPUJANI",
+        phone: "",
+        photo: aarti,
+        description:
+          "A Panjab University alumna and University Topper, Internationally Certified Youth Facilitator, and former UGC Student Ambassador, she has dedicated over nine years to community service, youth leadership, women’s empowerment and social impact. Recognised as a Youth Icon by the Ministry of Youth Affairs & Sports, Government of India, she has represented India at national and international platforms and received numerous honours, including the prestigious World Record of Excellence, England. She is committed to empowering women to lead with confidence, achieve self-reliance and attain financial independence.",
+      },
+      {
+        role: "CO-CONVENOR",
+        name: "BINAKSHI MAHI",
+        phone: "",
+        photo: binakshiMahi,
+        description:
+          "Binakshi Mahi is passionate about social development, women’s empowerment, and community engagement. Through her work with different NGOs and within the skill development industry, she is committed to creating opportunities for learning, growth, and self-reliance. She strongly believes in women’s rights, dignity, safety, and equal opportunities, and continues to stand for a society where every woman can live with confidence, independence, and respect.",
+      },
+    ],
   },
   "sarv-sewa-life-savers": {
     slug: "sarv-sewa-life-savers",
@@ -325,13 +351,59 @@ export const initiativesData: Record<string, EventDetails> = {
     contactPhone: "+91-98551-99173",
     coordinators: [
       {
-        role: "COORDINATOR",
+        role: "PUNJAB COORDINATOR",
         name: "JAGCHANAN SINGH",
         phone: "+91 98551 99173",
         photo: jagchananSingh,
+        description:
+          "Leading the Sarv Sewa Life Savers network across Punjab, dedicated to connecting voluntary blood donors with patients in urgent need and coordinating emergency medical support.",
       },
-      { role: "CO-COORDINATOR", name: "KOHINOOR", phone: "+91 98159 77922", photo: kohinoor },
-      { role: "CO-COORDINATOR", name: "PREET HANDA", phone: "+91 95012 38216" },
+      {
+        role: "CHANDIGARH COORDINATOR",
+        name: "KOHINOOR",
+        phone: "+91 98159 77922",
+        photo: kohinoor,
+        description:
+          "Coordinating active voluntary donors and hospital outreach across Chandigarh for emergency blood requirements.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "JUJHAR SINGH",
+        phone: "+91 70090 30826",
+        photo: jujharSingh,
+        description:
+          "Dedicated co-coordinator actively assisting with donor mobilization and urgent blood requests.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "ANSH ARORA",
+        phone: "+91 83603 00070",
+        description:
+          "Active co-coordinator supporting helpline management and voluntary blood donation drives.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "PREET HANDA",
+        phone: "+91 95012 38216",
+        description:
+          "Committed co-coordinator helping manage donor networks and rapid response coordination.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "HARMAN KAMBOJ",
+        phone: "+91 62839 09650",
+        photo: harmanKamboj,
+        description:
+          "Committed co-coordinator facilitating emergency donor connections and hospital assistance.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "DIMANSHU RANA",
+        phone: "+91 62832 68650",
+        photo: dimanshuRana,
+        description:
+          "Dedicated co-coordinator connecting voluntary donors with patients in urgent need across local centers.",
+      },
     ],
   },
   "social-work-internship": {
@@ -353,10 +425,47 @@ export const initiativesData: Record<string, EventDetails> = {
       "Leadership Development",
     ],
     contactEmail: "info@sarvsewabharat.org",
-    contactPhone: "+91-95927-43434",
+    contactPhone: "+91-90415-40053",
     coordinators: [
-      { role: "COORDINATOR", name: "KARAN BHATTI", phone: "+91 95927 43434", photo: karanBatti },
-      { role: "CO-COORDINATOR", name: "GOURAV CHOUDHARY", phone: "", photo: gaurav },
+      {
+        role: "COORDINATOR",
+        name: "GOURAV CHOUDHARY",
+        phone: "+91 90415 40053",
+        photo: gaurav,
+        description:
+          "Leading the Social Work Internship Program, mentoring student cohorts in community service, fieldwork, and nation-building initiatives.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "GURBAAZ SINGH",
+        phone: "+91 99145 92081",
+        description:
+          "Coordinating student engagement, logistics, and field program activities for intern batches.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "JOBANPREET SINGH SOHI",
+        phone: "+91 75085 09507",
+        photo: jobanSohi,
+        description:
+          "Assisting with student mentorship, community projects, and ground-level program coordination.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "HARSHKAMAL KANSAL",
+        phone: "+91 77194 33921",
+        photo: harshkamalKansal,
+        description:
+          "Managing internship partner relations, student documentation, and project schedules.",
+      },
+      {
+        role: "CO-COORDINATOR",
+        name: "GURVINDER SINGH",
+        phone: "+91 90564 76430",
+        photo: gurwinderSingh,
+        description:
+          "Supporting community outreach, social service campaigns, and fieldwork supervision.",
+      },
     ],
   },
 };

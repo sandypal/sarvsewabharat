@@ -4,7 +4,7 @@ import Image from "next/image";
 import { initiativesData, initiativesList } from "@/lib/events-data";
 import BankInfoCard from "@/components/BankInfoCard";
 import GalleryLightbox from "@/components/GalleryLightbox";
-import { Award } from "lucide-react";
+import InitiativeTeamSection from "@/components/initiatives/InitiativeTeamSection";
 
 export async function generateStaticParams() {
   return initiativesList.map((event) => ({
@@ -129,54 +129,6 @@ export default async function InitiativePage({
             {event.gallery && event.gallery.length > 0 && (
               <GalleryLightbox images={event.gallery} />
             )}
-
-            {event.coordinators && event.coordinators.length > 0 && (
-              <div className="mt-16 bg-muted/20 rounded-[2rem] p-8 lg:p-10 border border-border">
-                <h3 className="font-display text-2xl font-bold text-foreground mb-8 flex items-center gap-3">
-                  <span className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <Award className="h-5 w-5" />
-                  </span>
-                  Campaign Leadership
-                </h3>
-
-                <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 relative z-10">
-                  {event.coordinators.map((c: any, i: number) => (
-                    <div key={i} className="bg-white p-3 rounded-2xl shadow-sm border border-border/40 flex flex-col items-center text-left">
-                      {c.photo ? (
-                        <div className="w-full aspect-[4/4] rounded-[1rem] overflow-hidden relative mb-4">
-                          <Image src={c.photo} alt={c.name} fill className="object-cover object-top" />
-                        </div>
-                      ) : (
-                        <div className="w-full aspect-[4/4] bg-muted rounded-[1rem] mb-4" />
-                      )}
-                      
-                      <div className="w-full px-3 text-left flex flex-col items-start -mt-8 relative z-10 mb-4">
-                        <div className="bg-[#265B27] text-white px-4 py-1 text-[10px] font-bold uppercase tracking-wider shadow-md rounded-full inline-block">
-                          {c.role}
-                        </div>
-                      </div>
-                      
-                      <div className="px-4 pb-4 w-full">
-                        <div className="font-display text-[22px] font-bold uppercase text-foreground mb-0.5 tracking-tight">{c.name}</div>
-                        <div className="text-[13px] font-bold text-[#358B35] mb-5">{c.phone}</div>
-                        
-                        <div className="w-full h-px bg-border/60 mb-4" />
-                        
-                        {c.description ? (
-                          <p className="text-[12px] text-foreground/80 leading-relaxed font-medium">
-                            {c.description}
-                          </p>
-                        ) : (
-                          <p className="text-[12px] text-foreground/80 leading-relaxed font-medium">
-                            A dedicated leader working to transform the vision of the organization into meaningful action.
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
           {/* SIDEBAR */}
@@ -221,6 +173,13 @@ export default async function InitiativePage({
             <BankInfoCard />
           </aside>
         </div>
+
+        {/* TEAM & DIRECTORY SECTION (Full-Width Responsive 3/4 Columns & Table) */}
+        {event.coordinators && event.coordinators.length > 0 && (
+          <div className="mt-16 sm:mt-20">
+            <InitiativeTeamSection coordinators={event.coordinators} />
+          </div>
+        )}
       </section>
     </div>
   );
