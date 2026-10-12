@@ -43,6 +43,8 @@ const timeline = [
   { year: "2018", title: "National Events", desc: "Independence and Republic Day events." },
   { year: "2017", title: "एक दौड़ शहीदों के नाम", desc: "एक दौड़ शहीदों के नाम (A Run for Martyrs) and Independence and Republic Day events." },
   { year: "2016", title: "National Events", desc: "Independence and Republic Day events." },
+  { year: "2015", title: "Tree Planting", desc: "Tree Planting 2015." },
+  { year: "2014", title: "Safai Abhiyan", desc: "Safai Abhiyan 2014." },
 ];
 
 export default function AboutPage() {

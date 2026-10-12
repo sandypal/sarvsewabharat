@@ -22,7 +22,7 @@ const Events = () => {
                 <div>
                     <div className="text-xs uppercase tracking-[0.22em] text-accent font-semibold">What We Do</div>
                     <h2 className="mt-3 font-display text-4xl lg:text-5xl font-bold text-foreground max-w-2xl">
-                        Events that build a stronger, kinder, greener Bharat.
+                        Actions That Inspire: Shaping a Brighter Bharat.
                     </h2>
                 </div>
                 <p className="max-w-md text-muted-foreground">

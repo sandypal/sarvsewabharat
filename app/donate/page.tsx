@@ -21,7 +21,7 @@ const causes = [
     { value: "run-for-sindhu", label: "Run For Sindhu Marathon" },
     { value: "operation-sindoor", label: "Operation Sindoor Cricket Cup" },
     { value: "shiksha-sankalp", label: "Shiksha Sankalp (One Lac Students One Lac Smiles)" },
-    { value: "ssss-blood-donation", label: "Sarv Sewa Life Savers" },
+    { value: "sarv-sewa-life-savers", label: "Sarv Sewa Life Savers" },
     { value: "shakti-sankalp", label: "Shakti Sankalp (Women Empowerment & Skill Develoment)" },
     { value: "sansad-darshan-yatra", label: "Sansad Darshan Yatra" },
 ];
@@ -403,7 +403,8 @@ function DonateFormContent() {
                                 {[
                                     { text: "Sponsors educational resources and scholarships for underprivileged students.", link: "/events/shiksha-sankalp", label: "Shiksha Sankalp" },
                                     { text: "Supports grassroots sports and community engagement through local tournaments.", link: "/events/run-for-sindhu", label: "Run for Sindhu" },
-                                    { text: "Facilitates life-saving blood donation camps and critical trauma care support.", link: "/events/ssss-blood-donation", label: "Blood Donation" },
+                                    { text: "Supports community tape-ball tournaments to build neighbourhood pride.", link: "/events/operation-sindoor", label: "Operation Sindoor Cricket Cup" },
+                                    { text: "Facilitates life-saving blood donation camps and critical trauma care support.", link: "/initiatives/sarv-sewa-life-savers", label: "Sarv Sewa Life Savers" },
                                     { text: "Funds women's empowerment initiatives and vital skill development programs.", link: "/events/shakti-sankalp", label: "Shakti Sankalp" },
                                     { text: "Enables educational youth excursions to experience our democratic institutions.", link: "/events/sansad-darshan-yatra", label: "Sansad Yatra" },
                                 ].map((impact, idx) => (
